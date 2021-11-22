@@ -1,0 +1,25 @@
+#animation_star {
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+    position: absolute;
+    z-index: -1;
+}
+
+.star_config {
+    background-image: url("../assets/image/ball.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    transform: scale(0);
+    filter: blur(40);
+    animation: star_zoom ease infinite alternate-reverse;
+    transition: .5s linear;
+}
+
+@keyframes star_zoom {
+    to {
+        transform: scale(1);
+    }
+}
