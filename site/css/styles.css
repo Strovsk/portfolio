@@ -12,7 +12,7 @@ body {
 header {
     display: grid;
     grid-template-areas: "profile profile timeline"
-                        "body body timeline";
+                        "body body body";
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 300px 1fr;
     color: white;
@@ -29,14 +29,16 @@ header {
 
 .class_im{
     grid-area: body;
-    display: grid;
-    align-content: center;
-    justify-content: right;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 40px;
     /* background-color: green; */
 }
 .class_side{
     grid-area: timeline;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 #profile_image {
@@ -53,13 +55,13 @@ header {
     /* background-color: hotpink; */
     border: 4px solid white;
     border-top: none;
-    border-bottom-left-radius: 45%;
-    border-bottom-right-radius: 45%;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
     width: 250px;
     display: flex;
     align-content: center;
     flex-direction: column;
-    row-gap: 15px;
+    row-gap: 40px;
     background-color: #1b1b1b;
 }
 

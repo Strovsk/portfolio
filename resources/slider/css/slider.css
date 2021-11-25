@@ -1,0 +1,74 @@
+:root {
+  --dy_in: -100px;
+  --dy_out: 100px;
+}
+
+.quote_bio{
+  position: relative;
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .phrase{
+  
+} */
+
+.phrase::after {
+  content: "\201D";
+  font-size: 22pt;
+}
+.phrase::before {
+  content: "\201C";
+  font-size: 22pt;
+}
+
+.phrase {
+  font-size: 14pt;
+  top: var(--dy_in);
+  width: 300px;
+  opacity: 0;
+}
+
+.phrase.phrase0 {
+  animation: control_text 15s linear infinite;
+  /* background-color: blue; */
+
+  transition: 1s all ease;
+  
+  position: absolute;
+}
+
+.phrase.phrase1 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 5s;
+  
+  /* background-color: green; */
+  position: absolute;
+}
+.phrase.phrase2 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 10s;
+  
+  /* background-color: red; */
+  position: absolute;
+}
+
+@keyframes control_text {
+  0% {
+    top: var(--dy_in);
+    opacity: 0;
+    transform: rotateX(45deg);
+  }
+  3.33%, 30.05%{
+    top: 0;
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+  33.38%, 100%{
+    transform: rotateX(45deg);
+    top: var(--dy_out);
+    opacity: 0;
+  }
+}

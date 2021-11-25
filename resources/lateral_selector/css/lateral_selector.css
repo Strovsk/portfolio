@@ -1,0 +1,112 @@
+:root {
+    --bar-width: 10px;
+    --bar-height: 500px;
+    --bar-color: #eeeeee;
+
+    --node-size-default: 40px;
+    --node-color: #fff;
+
+    --inactive-node-size: calc(var(--node-size-default)*1.25);
+    --inactive-node-border-color: var(--node-color);
+
+    --active-node-size: calc(var(--node-size-default)*1.5);
+    --active-node-size-circle-external: calc(var(--active-node-size)*1.5);
+    --active-node-size-circle-internal: calc(var(--active-node-size)*1.25);
+    --active-node-color-circle-internal: #eee;
+    --active-node-color-circle-external: #eee;
+}
+
+.lateral_selector_bar {
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--bar-color);
+    background-color: green;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lateral_selector_node {
+    width: var(--node-size-default);
+    height: var(--node-size-default);
+    border-radius: 50%;
+    background-color: var(--node-color);
+    background-color: blue;
+    align-self: center;
+    position: relative;
+    transition: all .3s ease;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    /* transition: all .5s ease; */
+}
+
+.lateral_selector_node.inactive::after {
+    content: '';
+    display: block;
+    width: var(--inactive-node-size); /*default 50 px*/
+    height: var(--inactive-node-size); /*default 50 px*/
+    border-radius: 50%;
+    border: 1px solid var(--inactive-node-border-color);
+    border: 1px solid blue;
+    position: absolute;
+    /* right: -7px; Flex for some reason just works
+    bottom: -7px; */
+}
+
+.lateral_selector_node.active {
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    width: var(--active-node-size);
+    height: var(--active-node-size);
+    position: relative;
+}
+
+.lateral_selector_node.active::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: var(--active-node-size-circle-external);
+    height: var(--active-node-size-circle-external);
+    filter: opacity(.3);
+    background-color: var(--active-node-color-circle-external);
+    background-color: green;
+    position: absolute;
+    /* right: -15px;
+    bottom: -15px; */
+    z-index: -1;
+    animation: circle_appears .5s ease, circle_animation 1s linear .5s infinite alternate-reverse;
+}
+.lateral_selector_node.active::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: var(--active-node-size-circle-internal);
+    height: var(--active-node-size-circle-internal);
+    filter: opacity(.5);
+    background-color: var(--active-node-color-circle-internal);
+    background-color: green;
+    position: absolute;
+    /* right: -8px;
+    bottom: -8px; */
+    z-index: -1;
+    animation: circle_appears .5s ease, circle_animation 1s ease .5s infinite alternate-reverse;
+}
+
+@keyframes circle_animation {
+    to{
+        transform: scale(.95);
+    }
+}
+
+@keyframes circle_appears {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(.95);
+    }
+}

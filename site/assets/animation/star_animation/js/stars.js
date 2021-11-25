@@ -1,26 +1,5 @@
 var starc;
 
-window.onload = ()=>{
-    starc = new Constelation(
-        quantity=40,
-        size={
-            max: 15,
-            min: 8
-        },
-        viewbox={
-            width: 400,
-            height: 200,
-            ox: 100,
-            oy: 40,
-        },
-        container_id="animation_star",
-        use_container_metrics_width = false,
-        use_container_metrics_height = false,
-        opacity_status = true
-    )
-    starc.gen();
-}
-
 class Star{
     constructor(size, position, opacity_status=false, delay={min:1, max:15}, duration={min:3, max:7}){
         this.master_container = document.createElement("div");
@@ -74,7 +53,9 @@ class Constelation{
             this.fast_velocity=true;
             for(let item=0; item<this.quantity; item++){
                 let style_animation_duration = getComputedStyle(stars[item]);
+                let current_scale = new WebKitCSSMatrix(style_animation_duration.transform);
                 stars[item].style.animationDuration = `${parseFloat(style_animation_duration.animationDuration.slice(0, -1))*(this.growth_scale)}s`;
+                // stars[item].style.transform = `scale(${current_scale.m11/(1+this.growth_scale)})`;
                 stars[item].style.width = `${parseFloat(style_animation_duration.width.slice(0, -2))/(this.growth_scale)}px`;
                 stars[item].style.height = `${parseFloat(style_animation_duration.height.slice(0, -2))/(this.growth_scale)}px`;
             }
@@ -83,6 +64,7 @@ class Constelation{
             for(let item=0; item<this.quantity; item++){
                 let style_animation_duration = getComputedStyle(stars[item]);
                 stars[item].style.animationDuration = `${parseFloat(style_animation_duration.animationDuration.slice(0, -1))/(this.growth_scale)}s`;
+                // stars[item].style.transform = `scale(${this.growth_scale})`;
                 stars[item].style.width = `${parseFloat(style_animation_duration.width.slice(0, -2))*(this.growth_scale)}px`;
                 stars[item].style.height = `${parseFloat(style_animation_duration.height.slice(0, -2))*(this.growth_scale)}px`;
             }

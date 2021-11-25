@@ -1,18 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
 
 .presenter_text {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
+    margin-left: 40px;
+    /* margin-left: 50px; */
     /* margin-left: 50px; */
 }
 
 .text_top_intro {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
+    font-family: 'Roboto Regular', sans-serif;
+    margin-top: 13px;
 }
 
 .side_text {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Regular', sans-serif;
     font-size: 13pt;
+}
+
+.quote_bio {
+    /* font-size: 15pt; */
+    font-family: 'Patrick Hand', cursive;
+    font-size: 8pt;
+    margin-top: 13px;
+    margin-right: 35%;
+    margin-top: -5%;
+    tab-size: 8;
+    transition: .3s all;
 }

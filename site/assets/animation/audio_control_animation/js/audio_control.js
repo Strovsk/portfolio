@@ -24,4 +24,5 @@ function audio_control(){
 
 music_intro.onended = ()=>{
     audio_control();
+    window.starc.alternate_velocity();
 }
