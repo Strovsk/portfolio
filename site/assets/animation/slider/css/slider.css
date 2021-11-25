@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
 
 :root {
-  --dy_in: -100px;
-  --dy_out: 100px;
+  --dy_in: -60px;
+  --dy_out: 60px;
   --phrase_width: 400px;
+
+  --number-of-phrases: 3;
+  --duration-in-out: 4s;
+  --ani-dur: calc(var(--duration-in-out) * var(--number-of-phrases));
+  --ani-bezier: ease;
 }
 
 .quote_bio{
@@ -40,7 +45,7 @@
 }
 
 .phrase.phrase0 {
-  animation: control_text 15s linear infinite;
+  animation: control_text var(--ani-dur) var(--ani-bezier) infinite;
   /* background-color: blue; */
 
   transition: 1s all ease;
@@ -49,15 +54,15 @@
 }
 
 .phrase.phrase1 {
-  animation: control_text 15s linear infinite;
-  animation-delay: 5s;
+  animation: control_text var(--ani-dur) var(--ani-bezier) infinite;
+  animation-delay: calc(var(--duration-in-out) * 1);
   
   /* background-color: green; */
   position: absolute;
 }
 .phrase.phrase2 {
-  animation: control_text 15s linear infinite;
-  animation-delay: 10s;
+  animation: control_text var(--ani-dur) var(--ani-bezier) infinite;
+  animation-delay: calc(var(--duration-in-out) * 2);
   
   /* background-color: red; */
   position: absolute;
@@ -69,12 +74,12 @@
     opacity: 0;
     transform: rotateX(45deg);
   }
-  3.33%, 30.05%{
+  1%, 30%{
     top: 0;
     opacity: 1;
     transform: rotateX(0deg);
   }
-  33.38%, 100%{
+  31%, 100%{
     transform: rotateX(45deg);
     top: var(--dy_out);
     opacity: 0;

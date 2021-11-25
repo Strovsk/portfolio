@@ -4,9 +4,10 @@
 
 
 .presenter_text {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand Thin', sans-serif;
     font-weight: 400;
-    margin-left: 40px;
+    margin-left: 5%;
+    margin-top: -2%;
     /* margin-left: 50px; */
     /* margin-left: 50px; */
 }
@@ -14,7 +15,8 @@
 .text_top_intro {
     text-align: center;
     font-family: 'Roboto Regular', sans-serif;
-    margin-top: 13px;
+    font-size: 13px;
+    margin-top: 30px;
 }
 
 .side_text {
