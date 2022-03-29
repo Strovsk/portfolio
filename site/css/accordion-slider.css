@@ -6,7 +6,7 @@
 .AccordionSlider {
   display: flex;
   flex-flow: nowrap row;
-  width: 75vw;
+  width: 70vw;
 }
 
 .AccordionSlider-option {
@@ -76,7 +76,7 @@
   width: 150px;
   margin: 15px 0;
   text-decoration: none;
-  transition: .5s all ease;
+  transition: .3s all ease;
   pointer-events: none;
   opacity: .2;
 }

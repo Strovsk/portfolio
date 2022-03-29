@@ -9,8 +9,8 @@
     margin-left: 40px;
     /* margin-left: 50px; */
     /* margin-left: 50px; */
-}
-
+  }
+  
 .text_top_intro {
     text-align: center;
     font-family: 'Roboto Regular', sans-serif;
@@ -18,17 +18,33 @@
 }
 
 .side_text {
-    font-family: 'Roboto Regular', sans-serif;
-    font-size: 13pt;
+  font-family: 'Roboto Regular', sans-serif;
+  font-size: 13pt;
 }
 
 .quote_bio {
-    /* font-size: 15pt; */
-    font-family: 'Patrick Hand', cursive;
-    font-size: 8pt;
-    margin-top: 13px;
-    margin-right: 35%;
-    margin-top: -5%;
-    tab-size: 8;
-    transition: .3s all;
+  /* font-size: 15pt; */
+  font-family: 'Patrick Hand', cursive;
+  font-size: 8pt;
+  margin-top: 13px;
+  margin-right: 35%;
+  margin-top: -5%;
+  tab-size: 8;
+  transition: .3s all;
+}
+
+h1, h2, h3 {
+  font-family: 'Quicksand', sans-serif;
+}
+h1 {
+  font-weight: 400;
+  font-size: 30px;
+}
+h2 {
+  font-weight: 400;
+  font-size: 25px;
+}
+h3 {
+  font-weight: 400;
+  font-size: 20px;
 }
