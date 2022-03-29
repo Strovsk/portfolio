@@ -4,13 +4,14 @@ class lateral_selector {
         this.default_active_node = default_active_node-1;
         this.selectors_list = [];
     }
-    add_selector(text="default", text_horizontal_distance_inactive = 100, text_horizontal_distance_active=100, fontSizeActive=13, fontSizeInactive=13){
+    add_selector(text="default", text_horizontal_distance_inactive = 100, text_horizontal_distance_active=100, fontSizeActive=13, fontSizeInactive=13, href) {
         let generic_selector = document.createElement('a');
+        generic_selector.href = href;
         
         let text_node = document.createElement('p');
         text_node.innerHTML = text;
-        text_node.style.fontSize = `${fontSizeInactive}px`;
         text_node.classList.add('lateral_selector_node_text');
+        text_node.style.fontSize = `${fontSizeInactive}px`;
         
         text_node.style.left = `${text_horizontal_distance_inactive}px`;
 
@@ -41,7 +42,7 @@ class lateral_selector {
                 text_node = document.getElementById(`selector_${i}`).children[0];
                 text_node.classList.add('active');
                 text_node.style.left = `${this.selectors_list[i].dh_active}px`;
-                text_node.style.fontSize = `${this.selectors_list[i].fs_active}pt`;
+                text_node.style.fontSize = `${this.selectors_list[i].fs_active}px`;
                 
                 this.selectors_list[i].node.classList.remove('inactive');
                 this.selectors_list[i].node.classList.add('active');
@@ -49,7 +50,7 @@ class lateral_selector {
             }else if(this.selectors_list[i].is_active){
                 text_node = document.getElementById(`selector_${i}`).children[0];
                 text_node.classList.remove('active');
-                text_node.style.fontSize = `${this.selectors_list[i].fs_inactive}pt`;
+                text_node.style.fontSize = `${this.selectors_list[i].fs_inactive}px`;
                 text_node.style.left = `${this.selectors_list[i].dh_inactive}px`;
 
                 this.selectors_list[i].node.classList.remove('active');
@@ -62,8 +63,8 @@ class lateral_selector {
 
 var init_selectors = () => {
     selector_obj = new lateral_selector();
-    selector_obj.add_selector('Intro', -50, 0, 13, 13);
-    selector_obj.add_selector('Meu trabalho', -100, 0, 10, 13);
-    selector_obj.add_selector('Mockups', -80, 0, 10, 13);
+    selector_obj.add_selector('Intro', -50, 0, 13, 13, '#Home');
+    selector_obj.add_selector('Meu trabalho', -100, 0, 10, 13, '#my_work');
+    selector_obj.add_selector('Mockups', -80, 0, 10, 13, '#');
     console.log('seletores iniciados');
 }

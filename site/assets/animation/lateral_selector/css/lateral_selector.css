@@ -69,7 +69,7 @@
 }
 
 .lateral_selector_node.active {
-    display: flex;    
+    display: flex;
     align-items: center;
     justify-content: center;
     width: var(--active-node-size);
