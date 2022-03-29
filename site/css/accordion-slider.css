@@ -65,6 +65,9 @@
   overflow-x: hidden;
   box-shadow: -3px -3px 10px rgba(60, 60, 60, .3), 5px 5px 10px rgba(255, 255, 255, 1);
 }
+.AccordionSlider-option iframe.fullView {
+  width: 90%;
+}
 .AccordionSlider-option .AccordionSlider-title {
   font-size: 13px;
 }
