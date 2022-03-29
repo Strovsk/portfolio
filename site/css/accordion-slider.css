@@ -52,6 +52,7 @@
 .AccordionSlider-option.is-selected iframe {
   pointer-events: all;
   opacity: 1;
+  width: 80%; 
 }
 .AccordionSlider-option.is-selected .AccordionSlider-title {
   font-size: 23px;
@@ -74,7 +75,7 @@
   border-radius: 20px;
   text-align: center;
   padding: 15px;
-  width: 150px;
+  width: 140px;
   margin: 15px 0;
   text-decoration: none;
   transition: .3s all ease;
