@@ -107,3 +107,58 @@ header {
   margin-left: 50px;
   color: #eee;
 }
+
+#mockups {
+  width: 100vw;
+}
+#mockups h1:first-child {
+  margin-left: 50px;
+  margin-top: 100px;
+  color: #eee;
+}
+#mockups h1 {
+  color: #eee;
+}
+#mockups h2 {
+  color: #eee;
+}
+#mockups p {
+  color: #eee;
+  margin-top: 13px;
+}
+
+.mockupsContainer {
+  width: 80vw;
+  margin: 30px;
+  /* background-color: red; */
+}
+
+.mockup {
+  width: 100%; height: 50vh;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-around;
+}
+.mockup-imageContainer {
+  width: 50%; height: 100%;
+}
+  .mockup-imageContainer .image {
+    width: 100%; height: 100%;
+    display: grid;
+    place-items: center;
+    /* background: blue; */
+
+    transform: rotateX(13deg) rotateY(-30deg);
+    background: url(../assets/image/mockLessons.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .mockup-imageContainer .shadow {
+    width: 90%; height: 15%;
+    background-color: rgba(102, 102, 102, .5);
+    transform: rotateX(13deg) rotateY(-30deg);
+    margin-left: 5%;
+    margin-top: 3%;
+    border-radius: 50%;
+    filter: blur(15px);
+  }

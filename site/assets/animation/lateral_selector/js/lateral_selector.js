@@ -65,6 +65,6 @@ var init_selectors = () => {
     selector_obj = new lateral_selector();
     selector_obj.add_selector('Intro', -50, 0, 13, 13, '#Home');
     selector_obj.add_selector('Meu trabalho', -100, 0, 10, 13, '#my_work');
-    selector_obj.add_selector('Mockups', -80, 0, 10, 13, '#');
+    selector_obj.add_selector('Mockups', -80, 0, 10, 13, '#mockups');
     console.log('seletores iniciados');
 }
