@@ -9,6 +9,7 @@
 body {
     background-color: #1b1b1b;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -100,7 +101,7 @@ header {
   flex-flow: nowrap column;
 }
 #my_work * {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 #my_work h1 {
   margin-left: 50px;
