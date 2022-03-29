@@ -1,6 +1,6 @@
 :root {
-  --dy_in: -100px;
-  --dy_out: 100px;
+  --dy_in: -20px;
+  --dy_out: 20px;
 }
 
 .quote_bio{
@@ -25,7 +25,7 @@
 }
 
 .phrase {
-  font-size: 14pt;
+  font-size: 10px;
   top: var(--dy_in);
   width: 300px;
   opacity: 0;
