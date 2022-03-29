@@ -1,3 +1,5 @@
+@import url(./accordion-slider.css);
+
 * { 
     margin: 0;
     padding: 0;
@@ -86,4 +88,14 @@ header {
     width: 40px;
     height: 40px;
     /* background-color: green; */
+}
+
+#my_work {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-flow: nowrap column;
+}
+#my_work * {
+  margin-top: 30px;
 }
