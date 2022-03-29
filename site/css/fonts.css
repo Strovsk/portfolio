@@ -33,7 +33,7 @@
   transition: .3s all;
 }
 
-h1, h2, h3 {
+h1, h2, h3, a {
   font-family: 'Quicksand', sans-serif;
 }
 h1 {
@@ -48,6 +48,6 @@ h3 {
   font-weight: 400;
   font-size: 20px;
 }
-p {
+p, a {
   font-size: 13px;
 }
