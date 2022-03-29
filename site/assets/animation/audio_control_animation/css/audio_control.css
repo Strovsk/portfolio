@@ -1,9 +1,9 @@
 :root {
     --pause-width-bar: 10px;
-    --pause-height-bar: 40px;
+    --pause-height-bar: 30px;
     --pause-gap-bar: 15px;
-    --play-width: 40px;
-    --play-height: 40px;
+    --play-width: 30px;
+    --play-height: 30px;
     --icon-color: #eeeeee;
     --external-container-size: 50px;
 }
