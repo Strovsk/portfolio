@@ -9,7 +9,7 @@ class lateral_selector {
         
         let text_node = document.createElement('p');
         text_node.innerHTML = text;
-        text_node.style.fontSize = `${fontSizeInactive}pt`;
+        text_node.style.fontSize = `${fontSizeInactive}px`;
         text_node.classList.add('lateral_selector_node_text');
         
         text_node.style.left = `${text_horizontal_distance_inactive}px`;
@@ -60,10 +60,10 @@ class lateral_selector {
     }
 }
 
-var init_selectors = ()=> {
+var init_selectors = () => {
     selector_obj = new lateral_selector();
     selector_obj.add_selector('Intro', -50, 0, 13, 13);
-    selector_obj.add_selector('Meu trabalho', -120, 0, 10, 13);
-    // selector_obj.add_selector('final', -50, 0, 13, 13);
+    selector_obj.add_selector('Meu trabalho', -100, 0, 10, 13);
+    selector_obj.add_selector('Mockups', -80, 0, 10, 13);
     console.log('seletores iniciados');
 }

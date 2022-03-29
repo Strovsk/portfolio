@@ -2,7 +2,7 @@
 
 :root {
     --bar-width: 2px;
-    --bar-height: 600px;
+    --bar-height: 75vh;
     --bar-color: #eeeeee;
 
     --node-size-default: 30px;
@@ -21,7 +21,7 @@
 
 .lateral_selector_bar {
     position: fixed;
-    right: 150px;
+    right: 70px;
     top: 17%;
 
     width: var(--bar-width);
