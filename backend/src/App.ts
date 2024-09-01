@@ -2,15 +2,15 @@ import express, { type Express } from "express";
 import { healthCheckRouter } from "./routes";
 
 export default class App {
-	protected app: Express;
+	public express: Express;
 
 	constructor() {
-		this.app = express();
+		this.express = express();
 
-		this.app.use("/healthcheck", healthCheckRouter);
+		this.express.use("/healthcheck", healthCheckRouter);
 	}
 	public start(port = 3000) {
-		this.app.listen(port, () => {
+		this.express.listen(port, () => {
 			console.log(`App listening on port ${port}`);
 		});
 	}
