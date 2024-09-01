@@ -1,5 +1,9 @@
 {
   "name": "portfolio_backend",
+  "readme": "README.md",
+  "publisher": "github/Strovsk",
+  "github": "https://github.com/Strovsk",
+  "linkedin": "https://www.linkedin.com/in/thiago-santa-clara/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
