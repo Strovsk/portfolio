@@ -13,7 +13,8 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "prepare": "cd .. && husky backend/.husky",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "lint": "biome lint src"
   },
   "keywords": [],
   "author": "Thiago Santa Clara Pereira",
@@ -22,6 +23,7 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@commitlint/cli": "^19.4.1",
     "@commitlint/config-conventional": "^19.4.1",
     "@commitlint/types": "^19.0.3",
@@ -30,6 +32,7 @@
     "conventional-changelog-atom": "^5.0.0",
     "dotenv": "^16.4.5",
     "husky": "^9.1.5",
+    "lint-staged": "^15.2.10",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
