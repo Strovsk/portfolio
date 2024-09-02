@@ -1,0 +1,22 @@
+name: portfolio
+services:
+  backend:
+    image: portfolio-backend
+    container_name: backend
+    build:
+      context: backend
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - 3100:3000
+    develop:
+      watch:
+        - path: .
+          action: sync
+          target: /app
+          ignore:
+            - node_modules
+            - src
+            - tests
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/tests:/app/tests
