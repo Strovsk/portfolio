@@ -7,7 +7,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
-  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "npx tsc",
@@ -15,7 +14,7 @@
     "prepare": "cd .. && husky backend/.husky",
     "commitlint": "commitlint --edit",
     "lint": "biome lint src",
-    "test": "jest tests --config=jest.config.js"
+    "test": "jest tests --config=jest.config.ts"
   },
   "keywords": [],
   "author": "Thiago Santa Clara Pereira",
