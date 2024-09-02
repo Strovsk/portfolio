@@ -1,7 +1,7 @@
 # .husky/pre-commit
 # prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write --ignore-unknown
 echo
-echo "The march hare is here 🐇"
+echo "[BACKEND] The Strovsk's march hare is here 🐇"
 echo
 npx lint-staged --config backend/.lintstagedrc.json --cwd backend --relative
 git update-index --again

@@ -1,0 +1,6 @@
+# .husky/pre-commit
+echo
+echo "[FRONTEND] The Strovsk's march hare is here 🐇"
+echo
+# npx lint-staged --config backend/.lintstagedrc.json --cwd backend --relative
+git update-index --again
