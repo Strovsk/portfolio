@@ -16,9 +16,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "conventional-changelog-atom": "^5.0.0",
     "husky": "^9.1.5",
     "lint-staged": "^15.2.10",
     "typescript": "^5"
