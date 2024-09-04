@@ -28,5 +28,5 @@ do
   fi
 done
 
-# npx lint-staged --config backend/.lintstagedrc.json --cwd backend --relative
+npx lint-staged --config frontend/.lintstagedrc.json --cwd frontend --relative
 git update-index --again
