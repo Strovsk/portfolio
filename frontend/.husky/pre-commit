@@ -1,6 +1,32 @@
 # .husky/pre-commit
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+CYAN="\033[0;36m"
+RESET="\033[0m"
+
 echo
 echo "[FRONTEND] The Strovsk's march hare is here 🐇"
 echo
+
+for arg in $(git diff --name-only --cached)
+do
+  if [[ "$arg" == *"backend"* ]] ; then
+    echo -e "${RED}STOP!!!"
+    echo 
+    echo ERROR
+    echo           with $arg
+    echo -e "${RESET}${CYAN}"
+    echo CAUSE
+    echo           You just tried pass a backend file to frontend pre-commit.
+    echo -e "${RESET}${GREEN}"
+    echo SOLUTIONS
+    echo           "1. Please, unstage frontend file            git reset $arg"
+    echo           "2. Or change to frontend precommit using    cd ../frontend && npm run prepare"
+    echo -e $RESET
+    exit 1
+  fi
+done
+
 # npx lint-staged --config backend/.lintstagedrc.json --cwd backend --relative
 git update-index --again
