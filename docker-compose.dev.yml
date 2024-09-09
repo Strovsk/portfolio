@@ -20,3 +20,26 @@ services:
     volumes:
       - ./backend/src:/app/src
       - ./backend/tests:/app/tests
+    
+  frontend:
+    image: portfolio-frontend
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: docker/Dockerfile.dev
+    environment:
+      - DOCKER_ENV_POLL=3000
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./frontend
+          action: sync
+          target: /app
+          ignore:
+            - src
+            - node_modules
+            - tests
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/tests:/app/tests
