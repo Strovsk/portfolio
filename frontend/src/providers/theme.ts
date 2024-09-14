@@ -3,6 +3,9 @@
 import { createTheme } from "@mui/material";
 
 const theme = createTheme({
+	typography: {
+		fontFamily: "var(--font-roboto)",
+	},
 	palette: {
 		primary: {
 			main: "rgb(9, 23, 36)",
