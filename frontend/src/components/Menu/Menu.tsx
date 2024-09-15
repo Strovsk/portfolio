@@ -14,7 +14,7 @@ export default function Menu() {
       bottom: 10,
       [theme.breakpoints.down('sm')]: { margin: 0, width: '100%', top: 10 }
     }}>
-      <Grid sx={{
+      <Grid data-testid="see-resume" sx={{
         [theme.breakpoints.down('sm')]: { order: 3 }
       }}>
         <Link href="#">
@@ -40,13 +40,13 @@ export default function Menu() {
         [theme.breakpoints.down('sm')]: { width: '100%' }
       }}>
 
-        <Grid>
-          <Link href="#thech-skills">
+        <Grid data-testid="tech-skills">
+          <Link href="#tech-skills">
             <Button sx={{ textTransform: 'none' }} color="primary" variant="text">tecnologias</Button>
           </Link>
         </Grid>
 
-        <Grid>
+        <Grid data-testid="projects">
           <Link href="#projects">
             <Button sx={{ textTransform: 'none' }} color="primary" variant="text">projetos</Button>
           </Link>
