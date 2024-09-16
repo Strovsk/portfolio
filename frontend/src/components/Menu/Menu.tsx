@@ -42,13 +42,13 @@ export default function Menu() {
 
         <Grid data-testid="tech-skills">
           <Link href="#tech-skills">
-            <Button sx={{ textTransform: 'none' }} color="primary" variant="text">tecnologias</Button>
+            <Button color="primary" variant="text">tecnologias</Button>
           </Link>
         </Grid>
 
         <Grid data-testid="projects">
           <Link href="#projects">
-            <Button sx={{ textTransform: 'none' }} color="primary" variant="text">projetos</Button>
+            <Button color="primary" variant="text">projetos</Button>
           </Link>
         </Grid>
 
