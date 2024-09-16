@@ -9,18 +9,14 @@ const theme = createTheme({
 	palette: {
 		primary: {
 			main: "rgb(9, 23, 36)",
-			contrastText: "rgb(255, 255, 255)",
-		},
-		secondary: {
-			main: "rgb(94, 94, 94)",
-			contrastText: "rgb(94, 94, 94)",
+			contrastText: "rgba(255, 255, 255)",
 		},
 		background: {
 			default: "rgb(238, 238, 238)",
 		},
 		text: {
 			primary: "rgb(27, 27, 27)",
-			secondary: "rgb(94, 94, 94)",
+			secondary: "rgb(38, 38, 38)",
 		},
 		action: {
 			active: "blue",

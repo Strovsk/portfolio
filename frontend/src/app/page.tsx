@@ -1,10 +1,9 @@
-import { Menu, WellcomeMessage } from "@/components";
+import { Menu } from "@/components";
 
 export default function Home() {
   return (
     <main>
       <Menu />
-      <WellcomeMessage />
     </main>
   );
 }
