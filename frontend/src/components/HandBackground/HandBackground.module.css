@@ -1,0 +1,19 @@
+.HandBackground {
+  background: none;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg) scale(1.1);
+  position: absolute;
+  z-index: -2;
+  opacity: 10%;
+  animation: appear_an_disappear ease-in-out 2s infinite alternate;
+}
+
+@keyframes appear_and_disappear {
+  from {
+    opacity: 70%;
+  }
+
+  to {
+    opacity: 10%;
+  }
+}
