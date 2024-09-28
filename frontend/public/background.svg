@@ -1,0 +1,316 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700" style="background: #eee;">
+	<title>computer circuit</title>
+	<style>
+		.s0 { fill: #3d3d3d }
+
+    .plus-symbol {
+			stroke-width: 2px;
+			animation: rotate_filled 2s ease-in infinite alternate-reverse;
+		}
+
+    .rect-adapt {
+			animation: square 2s ease-in infinite alternate-reverse;
+    }
+
+    .draw_it {
+      stroke: #3d3d3d;
+      stroke-width: 2px;
+      stroke-dashoffset: 450;
+      stroke-dasharray: 450;
+      animation: draw 5s ease-in infinite alternate;
+    }
+
+		@keyframes rotate_filled {
+			to {
+				transform: rotate(90deg);
+			}
+		}
+
+		@keyframes square {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+	</style>
+	<path id="&lt;Path&gt;" class="s0" d="M 322.8 699 h -2.5 v -316.6 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 278.8 397.9 h -2.5 v -36.2 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 341.7 467.6 h -2.5 v -190.1 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 330.9 448.5 h -2.5 v -160.1 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 396.1 407.6 h -2.5 v -30 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 363.5 424.3 h -2.5 v -63.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="draw_it" d="M 385.3 699 v -281.7 z" />
+	<path id="&lt;Path&gt;" class="s0" d="M 390.7 699 h -2.5 v -272.5 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 380.3 562.8 h -2.6 v -145.5 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 330.9 517.8 h -2.5 v -40.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 293.1 355.2 h -58.3 v -2.5 h 58.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 321 384.2 l -29.7 -29.7 l 1.8 -1.8 l 29.7 29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 304.6 480.5 l -34.3 -34.3 l 1.8 -1.8 l 34.2 34.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 394.3 499.7 l -32.1 -32.1 l 1.8 -1.8 l 32.1 32.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 245.5 465.3 l -38.9 -38.9 l 1.8 -1.8 l 38.9 39 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 329.1 376.8 l -29.6 -29.7 l 1.8 -1.8 l 29.6 29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 293.1 393.3 l -16.8 -16.8 l 1.8 -1.8 l 16.8 16.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 268.4 423.7 l -16.8 -16.8 l 1.8 -1.8 l 16.8 16.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 271.4 469.8 l -16.8 -16.8 l 1.8 -1.8 l 16.8 16.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 315 223.1 l -29.7 -29.6 l 1.8 -1.8 l 29.7 29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 278.4 208 l -15.7 -15.7 l 1.8 -1.8 l 15.7 15.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 293.9 415.5 l -17.6 -17.6 l 1.8 -1.8 l 17.6 17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 298 137.3 h -2.6 v -36.3 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 313.1 154.9 l -17.7 -17.6 l 1.8 -1.8 l 17.7 17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 290.8 146.3 h -2.6 v -36.2 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 269.6 147.6 h -2.5 v -32.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 313.1 171.2 l -24.9 -24.9 l 1.8 -1.8 l 24.9 24.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 319.3 279 l -11.2 -11.2 l 1.8 -1.8 l 11.2 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 290 270.8 l -11.2 -11.2 l 1.8 -1.8 l 11.2 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 318.8 321.6 l -11.3 -11.2 l 1.8 -1.8 l 11.2 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 247.3 379.1 l -11.2 -11.2 l 1.8 -1.8 l 11.2 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 253.8 424 l -11.2 -11.2 l 1.8 -1.8 l 11.2 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 307.6 290.7 l -11.2 -11.2 l 1.7 -1.8 l 11.3 11.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 362 252.1 l -22.4 -22.2 l 1.8 -1.8 l 22.4 22.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 362.6 436.9 l -10.9 -10.8 l 1.8 -1.8 l 10.9 10.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 320.6 458.2 l -10.9 -10.8 l 1.8 -1.8 l 10.9 10.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 301.5 604.2 l -10.9 -10.9 l 1.8 -1.8 l 10.9 10.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 413.1 302.4 l -13.1 -13.1 l 1.8 -1.8 l 13.1 13.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 423.5 302.4 l -13.1 -13.1 l 1.8 -1.8 l 13.1 13.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 417.9 273.5 l -13.1 -13.1 l 1.8 -1.8 l 13 13.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 352.5 269.1 l -18.5 -18.6 l 1.8 -1.8 l 18.4 18.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 356.8 208.3 l -13.1 -13.1 l 1.8 -1.8 l 13.1 13.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 277 238.3 l -17.6 -17.6 l 1.8 -1.8 l 17.6 17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 380.1 184.5 l -13.1 -13.1 l 1.8 -1.8 l 13.1 13.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 433.8 259.1 l -20.1 -20.2 l 1.8 -1.8 l 20.1 20.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 483.8 298.5 l -20.1 -20.2 l 1.8 -1.8 l 20.1 20.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 381 240.7 l -18 -18 l 1.8 -1.8 l 18 18 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 376 199.4 l -17.9 -18 l 1.8 -1.7 l 17.9 17.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 428.3 494.9 l -15.7 -15.7 l 1.8 -1.8 l 15.7 15.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 344.1 533.5 l -15.7 -15.7 l 1.8 -1.8 l 15.7 15.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 330.2 479.2 l 11.5 -11.6 l -1.8 -1.8 l -11.5 11.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 337.6 511.7 h -2.5 v -31.2 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 348.4 470.7 h -2.5 v -23.3 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 336.9 482.3 l 11.5 -11.6 l -1.8 -1.8 l -11.5 11.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 384.5 419.1 l 11.6 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 401.5 416.8 h -2.5 v -30 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 390 428.3 l 11.5 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 396.1 642.2 h -2.5 v -208.3 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 395.4 435.8 l 11.5 -11.6 l -1.8 -1.8 l -11.5 11.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 337.6 511.7 l 11.5 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 334.3 599.9 l 11.6 -11.6 l -1.8 -1.7 l -11.6 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 368.7 574.3 l 11.6 -11.5 l -1.8 -1.8 l -11.6 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 410 619.6 l 11.5 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 366.9 407.6 h 2.6 v -31.8 h -2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 378.5 419.1 l -11.6 -11.5 l 1.8 -1.8 l 11.6 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 424.1 426 l 11.5 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 444 434.8 l 11.5 -11.5 l -1.8 -1.8 l -11.5 11.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 382.8 342.4 h -2.6 v -103.5 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 362.8 362.3 l 20 -19.9 l -1.8 -1.7 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 222.7 383.9 l 20 -19.9 l -1.8 -1.7 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 167.5 377.9 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 200.9 359.8 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 147 339 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 120.5 322.9 l 20 -19.8 l -1.8 -1.8 l -19.9 19.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 245.5 465.3 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 375.2 333 h -2.5 v -78.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 360.5 347.5 l 14.7 -14.5 l -1.8 -1.8 l -14.7 14.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 483.9 298.5 l 8.3 -8.1 l -1.8 -1.8 l -8.2 8.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 293.8 383.3 l 14.7 -14.4 l -1.8 -1.8 l -14.7 14.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 368.7 377.6 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 244.4 414.6 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 291.1 412.6 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 262.7 417.7 l 18.1 -18 l -1.8 -1.8 l -18.1 18 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 223.6 441.2 l 25.1 -25 l -1.8 -1.8 l -25.1 25 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 414.5 342.7 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 342.2 229.9 h -2.6 v -63.8 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 379.1 152.9 h -2.5 v -63.9 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 315 199.8 h -2.5 v -63.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 298.7 249 h -2.5 v -12.9 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 341.4 167.9 l 10.9 -10.8 l -1.8 -1.8 l -10.9 10.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 425.4 224.8 l -22.3 -22.2 l 1.8 -1.8 l 22.3 22.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 377.4 163.8 l -22.4 -22.2 l 1.8 -1.8 l 22.4 22.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 405.6 202.6 h -2.5 v -63.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 433.9 255.5 h -2.5 v -40.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 428.5 293.7 h -2.5 v -30.2 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 404.9 140.6 l 19.9 -19.8 l -1.7 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 359.2 108.8 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 424.8 424.2 h -2.5 v -63.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 424.1 362.2 l 20 -19.8 l -1.8 -1.8 l -20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 467.7 468.2 h 2.6 v -75.6 h -2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 468.5 394.4 l -20 -19.8 l 1.8 -1.8 l 20 19.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 234.9 355.2 l -29.7 -29.6 l 1.8 -1.8 l 29.6 29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 190.1 344.2 l -29.7 -29.6 l 1.8 -1.8 l 29.6 29.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 166.6 332.8 l -29.6 -29.7 l 1.8 -1.8 l 29.6 29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 330.9 290.9 h -58.2 v -2.5 h 58.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 309.4 260.3 h -42.8 v -2.5 h 42.8 z"/>
+	<path id="&lt;Path&gt;" class="draw_it" d="M 413 479.2 v -160.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 399.1 333.3 h 2.6 v -10.1 h -2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 291.4 496.1 l 30.8 -30.8 l -1.8 -1.7 l -30.8 30.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 335.1 610 h -2.6 v -89 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 410.7 699 h -2.5 v -81.2 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 406.3 699 h -2.6 v -47.7 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 345.2 699 h -2.5 v -79.9 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 303.3 658.4 h -2.5 v -174.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 369.5 699 h -2.6 v -126.5 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 406.9 356.6 l -17.5 -17.5 l 1.8 -1.8 l 17.5 17.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 445.5 408.5 l -17.5 -17.5 l 1.8 -1.8 l 17.5 17.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 443.2 474.9 l -17.5 -17.5 l 1.8 -1.8 l 17.5 17.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 455.9 313.1 l -17.5 -17.6 l 1.8 -1.8 l 17.5 17.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 468.1 459.1 l -25.9 -26.1 l 1.8 -1.7 l 25.9 26 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 450.2 368.9 l -17.6 -17.5 l 1.8 -1.8 l 17.6 17.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 406.2 404.1 h 2.5 v -49.3 h -2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 450.2 368.9 h 26 v -2.5 h -26 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 414.4 469.9 l 33.8 -33.6 l -1.8 -1.8 l -33.8 33.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 320.3 344.6 l 33.8 -33.6 l -1.8 -1.8 l -33.8 33.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 345.4 260.2 l 33.8 -33.6 l -1.8 -1.8 l -33.8 33.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 302.4 617.6 l 31.9 -31.7 l -1.7 -1.7 l -31.9 31.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 334.9 571.6 l 55.4 -54.7 l -1.7 -1.7 l -55.4 54.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 438.2 500.8 l 29.8 -29.2 l -1.8 -1.8 l -29.8 29.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 461.1 506.3 l 29.7 -29.2 l -1.8 -1.8 l -29.7 29.2 z"/>
+	<path id="&lt;Path&gt;" class="draw_it" d="M 414.4 320.9 l 40.4 -40.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 485.5 241.8 l 9.5 -9.7 l -1.8 -1.8 l -9.5 9.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 472.2 277.9 l 9.5 -9.7 l -1.7 -1.8 l -9.6 9.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 462.4 312.6 l 9.5 -9.8 l -1.7 -1.8 l -9.6 9.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 400.9 325 l 24.4 -24.3 l -1.8 -1.8 l -24.4 24.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 278.8 361.7 h -58.2 v 2.5 h 58.2 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 486.2 243.4 h -31.1 v 2.5 h 31.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 310.6 267.8 h -2.5 v -20.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 310.6 247 h -32.5 v 2.6 h 32.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 220.6 361.7 l -29.7 29.6 l 1.8 1.8 l 29.6 -29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 236.3 396.7 l -29.7 29.7 l 1.8 1.8 l 29.7 -29.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 310 301.8 h -2.6 v 36.2 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 292.1 288.4 l -17.6 17.7 l 1.8 1.8 l 17.6 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 293.5 318.5 l -17.6 17.6 l 1.8 1.8 l 17.6 -17.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 206 324.8 l -17.7 17.6 l 1.8 1.8 l 17.7 -17.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 280.4 174.6 l -17.7 17.7 l 1.8 1.8 l 17.7 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 297.2 202.8 l -17.7 17.7 l 1.8 1.8 l 17.6 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 335.8 248.7 l -17.7 17.7 l 1.8 1.8 l 17.6 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 455.9 316.1 l -17.6 17.7 l 1.8 1.8 l 17.6 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 277 203 l -17.6 17.7 l 1.8 1.8 l 17.6 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 306.9 162.2 l -17.7 17.6 l 1.8 1.8 l 17.7 -17.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 467 374.5 l 17.6 17.6 l -1.8 1.8 l -17.6 -17.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 424.5 395.1 l 9.6 -9.7 l -1.8 -1.8 l -9.6 9.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 369.3 403.2 l 9.6 -9.7 l -1.8 -1.8 l -9.6 9.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 364.4 116 l -8.8 8.8 l 1.7 1.8 l 8.9 -8.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 304.3 112.8 l -8.9 8.8 l 1.8 1.8 l 8.9 -8.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 377.4 160.2 l -37.4 37.4 l 1.8 1.8 l 37.4 -37.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 438.8 208.2 l -17.9 -18 l 1.8 -1.7 l 17.9 17.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 484 236.7 l -17.9 -18 l 1.8 -1.8 l 17.9 18 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 410.1 133.7 l -12.5 -12.5 l 1.3 -1.3 l 12.4 12.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 415.5 128.1 l -12.4 -12.5 l 1.2 -1.2 l 12.5 12.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 376.6 148 l -30.3 -30.3 l 1.7 -1.8 l 30.4 30.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 359.2 108.8 l -18 -18 l 1.8 -1.8 l 18 18 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 289 111.9 l -18 -18 l 1.8 -1.8 l 18 18 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 423.4 190.2 h -2.5 v -40.5 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 432.6 199.2 h -2.5 v -40.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 483.7 244.7 h 2.5 v -47.5 h -2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 455.1 259.8 h 2.5 v -16.4 h -2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 459.2 244.3 h 2.6 v -16.4 h -2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 463.5 211.2 h 2.6 v -16.4 h -2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 433.8 255.5 l -33.8 33.8 l 1.8 1.8 l 33.8 -33.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 440.4 206.2 l -16.8 16.8 l 1.8 1.8 l 16.8 -16.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 310 338 h -58.3 v -2.5 h 58.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 354.2 426.1 h -2.5 v -158.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 490.8 477.2 h -2.5 v -158.8 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 363.8 326.9 h -2.5 v -76.6 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 364.4 519.1 h -2.5 v -84 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 356.4 441.3 l -10.9 -10.9 l 1.8 -1.8 l 10.9 10.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 358.2 699 h -2.6 v -259.5 h 2.6 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 438 653.3 h -2.5 v -151.4 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 419.7 503.7 l -10.9 -10.8 l 1.8 -1.8 l 10.9 10.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 404.5 653.1 l -10.9 -10.9 l 1.8 -1.7 l 10.9 10.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 343.4 620.9 l -10.9 -10.9 l 1.8 -1.8 l 10.9 10.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 421.5 608.1 h -2.5 v -106.2 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 411.3 529.8 h -2.5 v -36.9 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 406.9 464.7 h -2.5 v -40.5 h 2.5 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 323.3 238.3 h -46.3 v -2.5 h 46.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 472.2 285.3 h -33.8 v -21 h 33.8 z"/>
+	<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="M 298.1 427.3 v 17.2 h -16.9 v -17.2 z m -4.4 4.5 h -8.1 v 8.2 h 8.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 384.9 228.5 h -9.4 v -21 h 9.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 472.2 261.6 h -9.3 v -5 h 9.3 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 461 261.6 h -9.4 v -5 h 9.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 439 503.1 h -4.8 v -4.7 h 4.8 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 173.4 338.2 h -7.7 v -7.7 h 7.7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 169.5 359.1 h -5 v -5.1 h 5 z"/>
+	<g id="strech bar A">
+		<path id="head" class="s0" d="M 152.5 380.6 h -7.7 v -7.6 h 7.7 z">
+        <animate
+          attributeName="d"
+          values="m152.5 380.6h-7.7v-7.6h7.7z; m142.5 380.6h-7.7v-7.6h7.7z; m152.5 380.6h-7.7v-7.6h7.7z"
+          dur="2s"
+          repeatCount="indefinite"
+          keyTimes="0; 0.5; 1"
+        />
+    </path>
+		<path id="body" class="s0" d="M 207.8 378.1 h -58.3 v -2.6 h 58.3 z">
+        <animate 
+          attributeName="d" 
+          values="m207.8 378.1h-58.3v-2.6h58.3z; m207.8 378.1h-68.3v-2.6h68.3z; m207.8 378.1h-58.3v-2.6h58.3z"
+          dur="2s"
+          repeatCount="indefinite" 
+          keyTimes="0; 0.5; 1"
+        />
+    </path>
+	</g>
+	<path id="square I" class="s0" d="M 432.6 208.2 l -7.3 7.3 l -7.3 -7.3 l 7.3 -7.3 z"/>
+	<path id="square H" class="s0" d="M 497.7 257.1 l -7.3 7.4 l -7.3 -7.4 l 7.3 -7.3 z"/>
+	<path id="square G" class="s0" d="M 229.7 426.3 l -7.4 7.3 l -7.3 -7.3 l 7.3 -7.4 z"/>
+	<path id="square F" class="s0" d="M 213.8 407.9 h -12.1 v -12.2 h 12.1 z"/>
+	<path id="square E" class="s0" d="M 289.5 171.2 l -7.3 7.3 l -7.4 -7.3 l 7.4 -7.3 z"/>
+
+	<rect id="square A" x="456" y="332" width="21" height="21" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 467px 342px;" />
+	<rect id="square B" x="430" y="126" width="10" height="10" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 435px 131px;" />
+	<rect id="square C" x="440" y="460" width="13" height="13" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 447px 468px; animation-duration: 5s;" transform="rotate(45)" transform-origin="461 460"/>
+	<rect id="square D" x="185" y="333" width="12" height="12" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 191px 339px;" transform="rotate(45)" transform-origin="203 333"/>
+
+	<path id="circle A" class="s0" d="M 275.5 441.5 c 0 4.5 -3.6 8.1 -8 8.1 c -4.5 0 -8.1 -3.6 -8.1 -8.1 c 0 -4.4 3.6 -8 8.1 -8 c 4.4 0 8 3.6 8 8 z"/>
+	<g id="plus D">
+		<line id="horizontal" x1="351" x2="363" y1="233" y2="233" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 357px 233px; stroke-width: 2px; animation-duration: 1s;"/>
+		<line id="vertical" x1="357" x2="357" y1="227" y2="238" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 357px 233px; stroke-width: 2px; animation-duration: 1s;"/>
+	</g>
+	<g id="plus C">
+		<line id="horizontal" x1="304" x2="318" y1="409" y2="409" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 310px 409px; stroke-width: 3px; animation-duration: 2s;"/>
+		<line id="vertical" x1="310" x2="310" y1="402" y2="416" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 310px 409px; stroke-width: 3px; animation-duration: 2s;"/>
+	</g>
+	<g id="plus B">
+		<line id="horizontal" x1="425" x2="433" y1="434" y2="434" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 429px 434px; animation-delay: 3s; animation-direction: unset;"/>
+		<line id="vertical" x1="429" x2="429" y1="430" y2="438" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 429px 434px; animation-delay: 3s; animation-direction: unset;"/>
+	</g>
+	<g id="plus A">
+		<line id="horizontal" x1="482.9" x2="494.6" y1="183.95" y2="183.95" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 488.75px 183.95px;" />
+		<line id="vertical" x1="488.75" y1="178.1" x2="488.75" y2="190" stroke="#3d3d3d" class="plus-symbol" style="transform-origin: 488.75px 184.05px;" />
+	</g>
+	<g id="arrow up B">
+		<path id="head" class="s0" d="M 402.7 571.3 l 4.8 -4.6 l 4.7 4.6 z"/>
+		<path id="body" class="s0" d="M 409.1 583.3 h -3.2 v -12.5 h 3.2 z"/>
+	</g>
+	<g id="arrow up A">
+		<path id="head" class="s0" d="M 423.9 515.9 l 4.8 -4.6 l 4.8 4.6 z"/>
+		<path id="body" class="s0" d="M 430.3 527.9 h -3.2 v -12.5 h 3.2 z"/>
+	</g>
+	<g id="arrow down D">
+		<path id="head" class="s0" d="M 266.2 276.4 l 3.9 3.7 l 3.9 -3.7 z"/>
+		<path id="body" class="s0" d="M 271.4 266.5 h -2.6 v 10.3 h 2.6 z"/>
+	</g>
+	<g id="arrow down C">
+		<path id="head" class="s0" d="M 466.5 236.8 l 2.2 2.1 l 2.1 -2.1 z"/>
+		<path id="body" class="s0" d="M 469.4 231.4 h -1.5 v 5.7 h 1.5 z"/>
+	</g>
+	<g id="arrow down B">
+		<path id="&lt;Path&gt;" class="s0" d="M 333 342.3 l 2.2 2.1 l 2.1 -2.1 z"/>
+		<path id="&lt;Path&gt;" class="s0" d="M 335.9 336.9 h -1.5 v 5.7 h 1.5 z"/>
+	</g>
+	<g id="arrow down A">
+		<path id="head" class="s0" d="M 410 224.8 l 2.2 2.1 l 2.2 -2.1 z"/>
+		<path id="body" class="s0" d="M 412.9 219.4 h -1.4 v 5.7 h 1.4 z"/>
+	</g>
+	<path id="&lt;Path&gt;" class="s0" d="M 438.8 361.1 l -5.1 5 l -5.1 -5 l 5.1 -5.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 142.7 323 l -3.7 3.8 l -3.8 -3.8 l 3.8 -3.7 z"/>
+	<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="M 150.9 323 l -11.9 12 l -12 -12 l 12 -12 z m -5 0 l -7 -7 l -7 7 l 7 7 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 480.9 180.9 l -6.3 6.2 l -6.2 -6.2 l 6.2 -6.3 z"/>
+	<path id="&lt;Compound Path&gt;" fill-rule="evenodd" class="s0" d="M 369.4 85.2 l -9.8 9.8 l -9.8 -9.8 l 9.8 -9.8 z m -9.8 6.3 l 6.4 -6.3 l -6.4 -6.4 l -6.3 6.4 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 370.1 298.9 h -3.9 v -30.7 h 3.9 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 275.3 266.5 l -0.1 19.1 h 19.1 z"/>
+	<path id="&lt;Path&gt;" class="s0" d="M 273.9 373.1 h -24.8 v -6.4 h 24.8 z"/>
+</svg>
