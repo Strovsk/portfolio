@@ -20,6 +20,10 @@
       animation: draw 5s ease-in infinite alternate;
     }
 
+    .square_accent {
+      animation: square_size 5s ease-in infinite alternate;
+    }
+
 		@keyframes rotate_filled {
 			to {
 				transform: rotate(90deg);
@@ -35,6 +39,15 @@
     @keyframes draw {
       to {
         stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes square_size {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
       }
     }
 	</style>
@@ -258,6 +271,18 @@
 	<path id="square G" class="s0" d="M 229.7 426.3 l -7.4 7.3 l -7.3 -7.3 l 7.3 -7.4 z"/>
 	<path id="square F" class="s0" d="M 213.8 407.9 h -12.1 v -12.2 h 12.1 z"/>
 	<path id="square E" class="s0" d="M 289.5 171.2 l -7.3 7.3 l -7.4 -7.3 l 7.4 -7.3 z"/>
+
+	<rect id="square J" class="square_accent" x="433" y="208" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 3s;" />
+	<rect id="square K" class="square_accent" x="498" y="257" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 4s;" />
+	<rect id="square L" class="square_accent" x="230" y="426" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 5s;" />
+	<rect id="square M" class="square_accent" x="400" y="430" width="75" height="75" fill="rgba(62, 62, 62, .5)" style="animation-duration: 6s;" />
+	<rect id="square N" class="square_accent" x="290" y="171" width="50" height="50" fill="rgba(62, 62, 62, .5)" style="animation-duration: 7s;" />
+
+	<rect id="square O" class="square_accent" x="433" y="208" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 3s;" />
+	<rect id="square P" class="square_accent" x="498" y="257" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 4s;" />
+	<rect id="square Q" class="square_accent" x="230" y="426" width="40" height="40" fill="rgba(62, 62, 62, .5)" style="animation-duration: 5s;" />
+	<rect id="square R" class="square_accent" x="330" y="550" width="45" height="45" fill="rgba(62, 62, 62, .5)" style="animation-duration: 6s;" />
+	<rect id="square S" class="square_accent" x="350" y="300" width="50" height="50" fill="rgba(62, 62, 62, .5)" style="animation-duration: 7s;" />
 
 	<rect id="square A" x="456" y="332" width="21" height="21" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 467px 342px;" />
 	<rect id="square B" x="430" y="126" width="10" height="10" fill="#3d3d3d" class="rect-adapt" style="transform-origin: 435px 131px;" />
