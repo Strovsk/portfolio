@@ -20,27 +20,28 @@
   "author": "Thiago Santa Clara Pereira",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "@prisma/client": "^6.0.1",
+    "express": "^5.0.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@commitlint/cli": "^19.4.1",
-    "@commitlint/config-conventional": "^19.4.1",
-    "@commitlint/types": "^19.0.3",
+    "@biomejs/biome": "^1.9.4",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/types": "^19.5.0",
     "@jest/globals": "^29.7.0",
-    "@types/express": "^4.17.21",
-    "@types/node": "^22.5.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
     "@types/supertest": "^6.0.2",
     "conventional-changelog-atom": "^5.0.0",
-    "dotenv": "^16.4.5",
-    "husky": "^9.1.5",
+    "dotenv": "^16.4.7",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
-    "lint-staged": "^15.2.10",
-    "nodemon": "^3.1.4",
-    "prisma": "^5.19.0",
+    "lint-staged": "^15.2.11",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.0.1",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.7.2"
   }
 }
