@@ -1,0 +1,33 @@
+/* .ProfileBackground {
+  position: absolute;
+} */
+
+.ProfileImage,
+.ProfileImageSX {
+  border-radius: 50%;
+}
+
+.ProfileBackgroundSX,
+.ProfileBackground {
+  opacity: 0.5;
+}
+
+.ProfileBackground,
+.ProfileImage {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.ProfileBackgroundSX,
+.ProfileImageSX {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 0%;
+  left: 50%;
+}
+
+.Container {
+  position: relative;
+}
