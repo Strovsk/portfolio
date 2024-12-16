@@ -1,19 +1,27 @@
-import { Menu, WellcomeMessage } from "@/components";
+"use client";
+
+import { Menu, WellcomeMessage, Profile } from "@/components";
 import { HandBackground } from "@/components";
-import { Container } from "@mui/material";
+import Grid from "@mui/material/Grid2";
+import theme from "@/providers/theme";
+import { useMediaQuery } from "@mui/material";
 
 export default function Home() {
+	const isDownLg = useMediaQuery(theme.breakpoints.down("lg"));
+
 	return (
 		<main>
 			<Menu />
-			<Container
-				maxWidth={false}
+			<Grid
 				sx={{ width: "100vw", height: "100vh" }}
-				disableGutters
+				container
+				alignItems={"flex-start"}
+				justifyContent={isDownLg ? "center" : "space-between"}
 			>
 				<WellcomeMessage />
+				<Profile />
 				<HandBackground />
-			</Container>
+			</Grid>
 		</main>
 	);
 }

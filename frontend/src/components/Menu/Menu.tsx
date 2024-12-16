@@ -1,58 +1,75 @@
-'use client';
+"use client";
 
 import React from "react";
-import Grid from '@mui/material/Grid2';
+import Grid from "@mui/material/Grid2";
 import { Button } from "@mui/material";
 import theme from "@/providers/theme";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Link from "next/link";
 
 export default function Menu() {
-  return (
-    <Grid container spacing={5} margin={5} sx={{
-      position: 'fixed',
-      bottom: 10,
-      [theme.breakpoints.down('sm')]: { margin: 0, width: '100%', top: 10 }
-    }}>
-      <Grid data-testid="see-resume" sx={{
-        [theme.breakpoints.down('sm')]: { order: 3 }
-      }}>
-        <Link href="#">
-          <Button
-            sx={{
-              textTransform: 'none',
-              [theme.breakpoints.down('sm')]: {
-                position: 'fixed',
-                bottom: 0,
-                width: '100%',
-                borderBottomRightRadius: 0,
-                borderBottomLeftRadius: 0,
-              }
-            }}
-            color="primary"
-            variant="contained"
-            endIcon={<KeyboardArrowUpIcon />}
-          >Veja meu resumo</Button>
-        </Link>
-      </Grid>
+	return (
+		<Grid
+			container
+			spacing={5}
+			margin={5}
+			sx={{
+				position: "fixed",
+				bottom: 10,
+				zIndex: 10,
+				[theme.breakpoints.down("sm")]: { margin: 0, width: "100%", top: 10 },
+			}}
+		>
+			<Grid
+				data-testid="see-resume"
+				sx={{
+					[theme.breakpoints.down("sm")]: { order: 3 },
+				}}
+			>
+				<Link href="#">
+					<Button
+						sx={{
+							textTransform: "none",
+							[theme.breakpoints.down("sm")]: {
+								position: "fixed",
+								bottom: 0,
+								width: "100vw",
+								borderBottomRightRadius: 0,
+								borderBottomLeftRadius: 0,
+							},
+						}}
+						color="primary"
+						variant="contained"
+						endIcon={<KeyboardArrowUpIcon />}
+					>
+						Veja meu resumo
+					</Button>
+				</Link>
+			</Grid>
 
-      <Grid container justifyContent={'space-around'} sx={{
-        [theme.breakpoints.down('sm')]: { width: '100%' }
-      }}>
+			<Grid
+				container
+				justifyContent={"space-around"}
+				sx={{
+					[theme.breakpoints.down("sm")]: { width: "100vw" },
+				}}
+			>
+				<Grid data-testid="tech-skills">
+					<Link href="#tech-skills">
+						<Button color="primary" variant="text">
+							tecnologias
+						</Button>
+					</Link>
+				</Grid>
 
-        <Grid data-testid="tech-skills">
-          <Link href="#tech-skills">
-            <Button color="primary" variant="text">tecnologias</Button>
-          </Link>
-        </Grid>
-
-        <Grid data-testid="projects">
-          <Link href="#projects">
-            <Button color="primary" variant="text">projetos</Button>
-          </Link>
-        </Grid>
-
-      </Grid>
-    </Grid>
-  )
+				<Grid data-testid="projects">
+					<Link href="#projects">
+						<Button color="primary" variant="text">
+							projetos
+						</Button>
+					</Link>
+				</Grid>
+			</Grid>
+		</Grid>
+	);
 }
