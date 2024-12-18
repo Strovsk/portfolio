@@ -9,3 +9,14 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model TechSkill {
+  id                Int      @id @default(autoincrement())
+  name              String
+  link              String
+  primary_color     String
+  secondary_color   String
+  short_description String
+  start_date        DateTime
+  end_date          DateTime
+}
