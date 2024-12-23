@@ -1,0 +1,30 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ts-node",
+            "name": "Dev Server",
+            "runtimeArgs": [
+              "-r",
+              "tsconfig-paths/register"
+            ],
+            "program": "${workspaceFolder}/src/index.ts",
+        },
+        {
+          "type": "node",
+          "name": "Current TS File",
+          "request": "launch",
+          "program": "${file}",
+          "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ts-node",
+          "runtimeArgs": [
+            "-r",
+            "tsconfig-paths/register"
+          ],
+        }
+    ]
+}
