@@ -1,9 +1,12 @@
+import { CreateTechSkillService } from "@src/services/TechSkillServices";
 import type { Request, Response } from "express";
 import httpStatus from "http-status-codes";
 
 export default class TechSkillController {
-	public async create(_req: Request, res: Response) {
-		res.status(httpStatus.CREATED).json({ message: "create" });
+	public async create(req: Request, res: Response) {
+		const data = CreateTechSkillService(req.body.validated);
+
+		res.status(httpStatus.CREATED).json({ message: "created", data });
 		return;
 	}
 
