@@ -1,10 +1,10 @@
 export default interface TechSkillModel {
-	id: number;
+	id: string;
 	name: string;
 	link: string;
-	primary_color: string;
-	secondary_color: string;
-	short_description: string;
-	start_date: Date;
-	end_date: Date;
+	primaryColor: string;
+	secondaryColor: string;
+	shortDescription: string;
+	startDate: Date;
+	endDate: Date;
 }
