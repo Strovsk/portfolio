@@ -1,7 +1,7 @@
 import { CreateTechSkillService } from "@src/services/TechSkillServices";
 import { describe, it, expect, beforeEach } from "@jest/globals";
-import type { TechSkillModel } from "@src/models";
 import refreshDatabaseHelper from "@tests/helpers/refresh_database.helper";
+import { TechSkillFactory } from "@src/factories";
 
 describe("CreateTechSkillService", () => {
 	beforeEach(() => {
@@ -9,21 +9,15 @@ describe("CreateTechSkillService", () => {
 	});
 
 	it("should create tech skill when all fields are provided", async () => {
-		const techSkill: Omit<TechSkillModel, "id"> = {
-			name: "Test Tech Skill",
-			short_description: "Test Tech Skill Short Description",
-			link: "https://test.tech.skill",
-			end_date: new Date(),
-			start_date: new Date(),
-			primary_color: "#000000",
-			secondary_color: "#FFFFFF",
-		};
+		const factory = new TechSkillFactory();
+		const techSkill = factory.make();
+		const { id: techSkillId, ...techSkillWithoutId } = techSkill;
 
-		const result = await CreateTechSkillService(techSkill);
+		const result = await CreateTechSkillService(techSkillWithoutId);
 
 		expect(result).toHaveProperty("id");
-		const { id, ...resultWithoutId } = result;
+		const { id: resultId, ...resultWithoutId } = result;
 
-		expect(resultWithoutId).toEqual(techSkill);
+		expect(resultWithoutId).toEqual(resultWithoutId);
 	});
 });
