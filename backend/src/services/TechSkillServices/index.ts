@@ -1,3 +1,1 @@
-import CreateTechSkillService from "./CreateTechSkill.service";
-
-export { CreateTechSkillService };
+export * from "./CreateTechSkill.service";
