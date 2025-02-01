@@ -6,10 +6,9 @@ import { prismaCursor } from "@src/utils";
 export async function CreateTechSkillService(
 	techSkill: Omit<TechSkillModel, "id">,
 ) {
-	const cursor = await prismaCursor();
 	const techSkillDto = new TechSkillDto();
 
-	const createdTechSkill = await cursor.techSkill.create({
+	const createdTechSkill = await prismaCursor.techSkill.create({
 		data: {
 			name: techSkill.name,
 			short_description: techSkill.shortDescription,

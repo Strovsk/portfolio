@@ -6,20 +6,15 @@ import { prismaCursor } from "@src/utils";
 import { TechSkillDto } from "@src/dto";
 
 export class TechSkillFactory implements IFactory<TechSkillModel, TechSkill> {
-	cursor: PrismaClient | null;
+	cursor: PrismaClient;
 	techSkillDto: TechSkillDto;
 
 	constructor() {
 		this.techSkillDto = new TechSkillDto();
-
-		this.cursor = null;
+		this.cursor = prismaCursor;
 	}
 
 	public async create(data: Partial<TechSkill> = {}): Promise<TechSkill> {
-		if (!this.cursor) {
-			this.cursor = await prismaCursor();
-		}
-
 		const techSkillPrisma = this.techSkillDto.toPrismaModel({
 			...(this.make(data) as TechSkillModel),
 		});
