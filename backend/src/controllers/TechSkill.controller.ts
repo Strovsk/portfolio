@@ -4,9 +4,9 @@ import httpStatus from "http-status-codes";
 
 export default class TechSkillController {
 	public async create(req: Request, res: Response) {
-		const data = CreateTechSkillService(req.body.validated);
+		await CreateTechSkillService(req.body.validated);
 
-		res.status(httpStatus.CREATED).json({ message: "created", data });
+		res.status(httpStatus.CREATED).send();
 		return;
 	}
 

@@ -11,7 +11,7 @@ techSkillRouter.get("/", techSkillController.list);
 techSkillRouter.post(
 	"/",
 	ValidateMiddleware(Requests.CreateTechSkillRequest),
-	techSkillController.list,
+	techSkillController.create,
 );
 
 export default techSkillRouter;

@@ -7,8 +7,9 @@ export default class App {
 	constructor() {
 		this.express = express();
 
+		this.express.use(express.json());
 		this.express.use("/healthcheck", healthCheckRouter);
-		this.express.use("/tech-skill", techSkillRouter);
+		this.express.use("/techskill", techSkillRouter);
 	}
 	public start(port = 3000) {
 		this.express.listen(port, () => {
