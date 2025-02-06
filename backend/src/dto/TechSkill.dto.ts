@@ -5,8 +5,8 @@ export class TechSkillDto {
 	public toPrismaModel(model: TechSkillModel): TechSkill {
 		const prismaModel: TechSkill = {
 			id: model.id,
-			start_date: model.startDate,
-			end_date: model.endDate,
+			start_date: model.startDate as Date,
+			end_date: model.endDate as Date,
 			link: model.link,
 			name: model.name,
 			primary_color: model.primaryColor,
@@ -50,8 +50,8 @@ export class TechSkillDto {
 	public toManyPrismaModel(models: TechSkillModel[]): TechSkill[] {
 		const prismaModels: TechSkill[] = models.map((model) => ({
 			id: model.id,
-			start_date: model.startDate,
-			end_date: model.endDate,
+			start_date: model.startDate as Date,
+			end_date: model.endDate as Date,
 			link: model.link,
 			name: model.name,
 			primary_color: model.primaryColor,

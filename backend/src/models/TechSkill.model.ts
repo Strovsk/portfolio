@@ -5,6 +5,6 @@ export default interface TechSkillModel {
 	primaryColor: string;
 	secondaryColor: string;
 	shortDescription: string;
-	startDate: Date;
-	endDate: Date;
+	startDate: Date | string;
+	endDate: Date | string;
 }

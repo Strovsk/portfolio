@@ -7,8 +7,8 @@ const CreateTechSkillRequest: z.ZodType = z.object({
 	primaryColor: z.string().min(1).max(255),
 	secondaryColor: z.string().min(1).max(255),
 	shortDescription: z.string().min(1).max(255),
-	startDate: z.date(),
-	endDate: z.date(),
+	startDate: z.union([z.date(), z.string()]),
+	endDate: z.union([z.date(), z.string()]),
 }) satisfies z.ZodType<Omit<TechSkillModel, "id">>;
 
 export default CreateTechSkillRequest;
