@@ -14,4 +14,14 @@ techSkillRouter.post(
 	techSkillController.create,
 );
 
+techSkillRouter.put(
+	"/:id",
+	ValidateMiddleware(Requests.UpdateTechSkillRequest),
+	techSkillController.update,
+);
+
+techSkillRouter.get("/:id", techSkillController.read);
+
+techSkillRouter.delete("/:id", techSkillController.delete);
+
 export default techSkillRouter;

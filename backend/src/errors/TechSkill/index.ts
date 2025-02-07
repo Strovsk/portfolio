@@ -1,3 +1,4 @@
 import TechSkillNotExistsError from "./TechSkillNotExists.error";
+import TechSkillAlreadyExists from "./TechSkillAlreadyExists.error";
 
-export { TechSkillNotExistsError };
+export { TechSkillNotExistsError, TechSkillAlreadyExists };

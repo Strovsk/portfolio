@@ -1,4 +1,5 @@
 import { CreateTechSkillService } from "@src/services/TechSkillServices";
+import { UpdateByIdTechSkillService } from "@src/services/TechSkillServices/UpdateByIdTechSkill.service";
 import type { Request, Response } from "express";
 import httpStatus from "http-status-codes";
 
@@ -15,8 +16,18 @@ export default class TechSkillController {
 		return;
 	}
 
-	public async update(_req: Request, res: Response) {
-		res.status(httpStatus.OK).json({ message: "update" });
+	public async update(req: Request, res: Response) {
+		const { id } = req.params;
+		const { validated } = req.body;
+
+		if (!validated || Object.keys(validated).length === 0) {
+			res.status(httpStatus.BAD_REQUEST).json({ message: "Invalid input" });
+			return;
+		}
+
+		await UpdateByIdTechSkillService(id, validated);
+
+		res.status(httpStatus.OK).json({ message: "updated" });
 		return;
 	}
 
