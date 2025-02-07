@@ -1,5 +1,6 @@
 import express, { type Express } from "express";
 import { healthCheckRouter, techSkillRouter } from "./routes";
+import { ErrorHandlerMiddleware } from "./middlewares/apiError.middleware";
 
 export default class App {
 	public express: Express;
@@ -8,6 +9,7 @@ export default class App {
 		this.express = express();
 
 		this.express.use(express.json());
+		this.express.use(ErrorHandlerMiddleware);
 		this.express.use("/healthcheck", healthCheckRouter);
 		this.express.use("/techskill", techSkillRouter);
 	}
