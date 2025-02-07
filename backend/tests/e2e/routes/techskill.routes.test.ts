@@ -5,6 +5,8 @@ import { TechSkillFactory } from "@src/factories";
 import { beforeEach } from "node:test";
 import refreshDatabaseHelper from "@tests/helpers/refresh_database.helper";
 import httpStatus from "http-status-codes";
+import { TechSkillDto } from "@src/dto";
+import type { TechSkillModel } from "@src/models";
 
 describe("TechSkill routes", () => {
 	beforeEach(() => {
@@ -39,19 +41,75 @@ describe("TechSkill routes", () => {
 		expect(response.status).toBe(400);
 	});
 
-	it("should fail when trying to create an techskill with the same name", async () => {
+	it("should fail when trying to create an techskill wich name already exists", async () => {
+		const app = new App();
+		const techSkillDto = new TechSkillDto();
+
+		const factory = new TechSkillFactory();
+		const createdTechSkill = await factory.create();
+		const techSkill = techSkillDto.toEntityModel(createdTechSkill);
+		const { id, ...techSkillWithoutId } = techSkill;
+		techSkillWithoutId.startDate = (
+			techSkillWithoutId.startDate as Date
+		).toISOString();
+		techSkillWithoutId.endDate = (
+			techSkillWithoutId.endDate as Date
+		).toISOString();
+
+		await request(app.express).post("/techskill").send(techSkillWithoutId);
+
+		const response = await request(app.express)
+			.post("/techskill")
+			.send(techSkillWithoutId);
+
+		expect(response.status).toBe(httpStatus.CONFLICT);
+	});
+
+	it("should update a techskill", async () => {
+		const app = new App();
+		const factory = new TechSkillFactory();
+		const techSkill = await factory.create();
+
+		const updateBody: Partial<TechSkillModel> = {
+			name: "Updated Name",
+		};
+
+		const response = await request(app.express)
+			.put(`/techskill/${techSkill.id}`)
+			.send(updateBody);
+
+		expect(response.status).toBe(httpStatus.OK);
+	});
+
+	it("should fail when Trying to update a techskill which name is already registered", async () => {
 		const app = new App();
 
 		const factory = new TechSkillFactory();
-		const techskill = await factory.create();
-		const { id, ...techSkillWithoutId } = techskill;
+		const techSkillA = await factory.create({ name: "TechSkill" });
+		const techSkillB = await factory.create();
 
-		request(app.express)
-			.post("/techskill")
-			.send(techSkillWithoutId)
-			.end((_err, res) => {
-				expect(res.status).toBe(400);
-				expect(res.body.message).toBe("TechSkill already exists");
-			});
+		const updateBody: Partial<TechSkillModel> = {
+			name: techSkillA.name,
+		};
+
+		const response = await request(app.express)
+			.put(`/techskill/${techSkillB.id}`)
+			.send(updateBody);
+
+		expect(response.status).toBe(httpStatus.CONFLICT);
+	});
+
+	it("should handle non-existent techskill update", async () => {
+		const app = new App();
+		const nonExistentId = "non-existent-id";
+		const updateBody: Partial<TechSkillModel> = {
+			name: "New Name",
+		};
+
+		const response = await request(app.express)
+			.put(`/techskill/${nonExistentId}`)
+			.send(updateBody);
+
+		expect(response.status).toBe(httpStatus.NOT_FOUND);
 	});
 });
