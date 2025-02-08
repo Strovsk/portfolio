@@ -135,4 +135,47 @@ describe("TechSkill routes", () => {
 
 		expect(response.status).toBe(httpStatus.NOT_FOUND);
 	});
+
+	it("should delete a techskill", async () => {
+		const app = new App();
+		const factory = new TechSkillFactory();
+		const techSkill = await factory.create();
+
+		const response = await request(app.express).delete(
+			`/techskill/${techSkill.id}`,
+		);
+
+		expect(response.status).toBe(httpStatus.NO_CONTENT);
+	});
+
+	it("should handle non-existent techskill deletion", async () => {
+		const app = new App();
+		const nonExistentId = "non-existent-id";
+
+		const response = await request(app.express).delete(
+			`/techskill/${nonExistentId}`,
+		);
+
+		expect(response.status).toBe(httpStatus.NOT_FOUND);
+	});
+
+	it("should list all techskills", async () => {
+		const app = new App();
+
+		const response = await request(app.express).get("/techskill");
+
+		expect(response.status).toBe(httpStatus.OK);
+		expect(response.body).toEqual([]);
+	});
+
+	it("should list all techskills with data", async () => {
+		const app = new App();
+		const factory = new TechSkillFactory();
+		await factory.create();
+
+		const response = await request(app.express).get("/techskill");
+
+		expect(response.status).toBe(httpStatus.OK);
+		expect(response.body.length).toBe(1);
+	});
 });
