@@ -112,4 +112,27 @@ describe("TechSkill routes", () => {
 
 		expect(response.status).toBe(httpStatus.NOT_FOUND);
 	});
+
+	it("should read a techskill", async () => {
+		const app = new App();
+		const factory = new TechSkillFactory();
+		const techSkill = await factory.create();
+
+		const response = await request(app.express).get(
+			`/techskill/${techSkill.id}`,
+		);
+
+		expect(response.status).toBe(httpStatus.OK);
+	});
+
+	it("should handle non-existent techskill reading", async () => {
+		const app = new App();
+		const nonExistentId = "non-existent-id";
+
+		const response = await request(app.express).get(
+			`/techskill/${nonExistentId}`,
+		);
+
+		expect(response.status).toBe(httpStatus.NOT_FOUND);
+	});
 });

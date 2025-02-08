@@ -1,4 +1,5 @@
 import { CreateTechSkillService } from "@src/services/TechSkillServices";
+import { GetByIdTechSkillService } from "@src/services/TechSkillServices/GetByIdTechSkill.service";
 import { UpdateByIdTechSkillService } from "@src/services/TechSkillServices/UpdateByIdTechSkill.service";
 import type { Request, Response } from "express";
 import httpStatus from "http-status-codes";
@@ -11,8 +12,11 @@ export default class TechSkillController {
 		return;
 	}
 
-	public async read(_req: Request, res: Response) {
-		res.status(httpStatus.OK).json({ message: "read" });
+	public async read(req: Request, res: Response) {
+		const { id } = req.params;
+		const teckSkill = await GetByIdTechSkillService(id);
+
+		res.status(httpStatus.OK).json(teckSkill);
 		return;
 	}
 
