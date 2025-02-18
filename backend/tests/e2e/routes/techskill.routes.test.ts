@@ -2,17 +2,12 @@ import { describe, expect, it } from "@jest/globals";
 import request from "supertest";
 import App from "@src/App";
 import { TechSkillFactory } from "@src/factories";
-import { beforeEach } from "node:test";
 import refreshDatabaseHelper from "@tests/helpers/refresh_database.helper";
 import httpStatus from "http-status-codes";
 import { TechSkillDto } from "@src/dto";
 import type { TechSkillModel } from "@src/models";
 
 describe("TechSkill routes", () => {
-	beforeEach(() => {
-		refreshDatabaseHelper();
-	});
-
 	it("should create a new techskill", async () => {
 		const app = new App();
 
@@ -160,22 +155,64 @@ describe("TechSkill routes", () => {
 	});
 
 	it("should list all techskills", async () => {
+		await refreshDatabaseHelper();
 		const app = new App();
+
+		const factory = new TechSkillFactory();
+
+		await Promise.all(
+			Array.from({ length: 5 }).map(async () => {
+				await factory.create();
+			}),
+		);
 
 		const response = await request(app.express).get("/techskill");
 
 		expect(response.status).toBe(httpStatus.OK);
-		expect(response.body).toEqual([]);
+		expect(response.body.length).toBe(5);
 	});
 
-	it("should list all techskills with data", async () => {
+	it("should list all techskills with filter", async () => {
+		await refreshDatabaseHelper();
+
 		const app = new App();
 		const factory = new TechSkillFactory();
-		await factory.create();
+		await factory.create({ name: "TechSkill 1" });
 
-		const response = await request(app.express).get("/techskill");
+		await Promise.all(
+			Array.from({ length: 5 }).map(async () => {
+				await factory.create();
+			}),
+		);
+
+		const response = await request(app.express).get(
+			"/techskill?name=TechSkill 1",
+		);
 
 		expect(response.status).toBe(httpStatus.OK);
 		expect(response.body.length).toBe(1);
+		expect(response.body[0].name).toBe("TechSkill 1");
+	});
+
+	it("should paginate techskills", async () => {
+		await refreshDatabaseHelper();
+
+		const app = new App();
+		const factory = new TechSkillFactory();
+
+		await Promise.all(
+			Array.from({ length: 5 }).map(async (_, index) => {
+				await factory.create({ name: `TechSkill ${index}` });
+			}),
+		);
+
+		const response = await request(app.express).get(
+			"/techskill?page=2&itemsPerPage=2",
+		);
+
+		expect(response.status).toBe(httpStatus.OK);
+		expect(response.body.length).toBe(2);
+		expect(response.body[0].name).toBe("TechSkill 2");
+		expect(response.body[1].name).toBe("TechSkill 3");
 	});
 });
