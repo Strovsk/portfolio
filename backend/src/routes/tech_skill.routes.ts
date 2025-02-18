@@ -24,4 +24,6 @@ techSkillRouter.get("/:id", techSkillController.read);
 
 techSkillRouter.delete("/:id", techSkillController.delete);
 
+techSkillRouter.get("/list", techSkillController.list);
+
 export default techSkillRouter;

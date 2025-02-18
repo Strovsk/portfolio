@@ -1,6 +1,7 @@
 import { CreateTechSkillService } from "@src/services/TechSkillServices";
 import DeleteTechSkillService from "@src/services/TechSkillServices/DeleteTechSkill.service";
 import { GetByIdTechSkillService } from "@src/services/TechSkillServices/GetByIdTechSkill.service";
+import ListTechSkillService from "@src/services/TechSkillServices/ListTechSkill.service";
 import { UpdateByIdTechSkillService } from "@src/services/TechSkillServices/UpdateByIdTechSkill.service";
 import type { Request, Response } from "express";
 import httpStatus from "http-status-codes";
@@ -45,8 +46,19 @@ export default class TechSkillController {
 		return;
 	}
 
-	public async list(_req: Request, res: Response) {
-		res.status(httpStatus.OK).json({ message: "list" });
+	public async list(req: Request, res: Response) {
+		const { page = 1, itemsPerPage, ...filters } = req.query;
+
+		const techSkills = await ListTechSkillService({
+			pagination: {
+				page: Number.parseInt(page as string, 10),
+				itemsPerPage: itemsPerPage
+					? Number.parseInt(itemsPerPage as string, 10)
+					: undefined,
+			},
+			filters,
+		});
+		res.status(httpStatus.OK).json(techSkills);
 		return;
 	}
 }
