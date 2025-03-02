@@ -1,9 +1,8 @@
-"use client";
-
 import { Typography, Box, useMediaQuery } from "@mui/material";
 import styles from "./Profile.module.css";
 import Image from "next/image";
 import theme from "@/providers/theme";
+import TechSkillIcon from "../TechSkillIcon/TechSkillIcon.component";
 
 export default function Profile() {
 	const containerSize = 600;
@@ -11,6 +10,7 @@ export default function Profile() {
 
 	return (
 		<Box
+			key="profile"
 			sx={{
 				position: "relative",
 				width: containerSize,
@@ -24,6 +24,12 @@ export default function Profile() {
 				},
 			}}
 		>
+			<TechSkillIcon name="PHP" primaryColor="#777BB4" secondaryColor="white" />
+			<TechSkillIcon
+				name="Node.js"
+				primaryColor="#68A063"
+				secondaryColor="white"
+			/>
 			<object
 				data={"/tech_card_back.svg"}
 				type="image/svg+xml"
