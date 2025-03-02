@@ -14,7 +14,7 @@ interface TechSkillIconProps {
 
 export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 	const { name, primaryColor = "#eee", secondaryColor = "#1b1b1b" } = props;
-	const size = 50;
+	const iconSize = 50;
 
 	const iconRef = useRef<HTMLDivElement>(null);
 	const iconOrbiterRef = useRef<HTMLDivElement>(null);
@@ -67,8 +67,8 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 				key={`tech-skill-icon-${name}`}
 				sx={{
 					backgroundColor: primaryColor,
-					width: size,
-					height: size,
+					width: iconSize,
+					height: iconSize,
 					borderRadius: "15px",
 					display: "grid",
 					placeItems: "center",
@@ -81,7 +81,7 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 				<img
 					src={`https://cdn.simpleicons.org/${name}/${secondaryColor}`}
 					alt={name}
-					width={size / 2}
+					width={iconSize / 2}
 				/>
 			</Box>
 		</Box>
