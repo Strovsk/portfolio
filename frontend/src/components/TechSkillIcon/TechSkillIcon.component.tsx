@@ -14,22 +14,39 @@ interface TechSkillIconProps {
 
 export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 	const { name, primaryColor = "#eee", secondaryColor = "#1b1b1b" } = props;
+
 	const iconSize = 50;
+	const maxOrbiterSize = 800;
+	const minOrbiterSize = 400;
+
+	const firstOrbiterSizeMultipleIndex = Math.round(minOrbiterSize / iconSize);
+	const lastOrbiterSizeMultipleIndex = Math.floor(maxOrbiterSize / iconSize);
+	const orbiterIndexDiff =
+		lastOrbiterSizeMultipleIndex - firstOrbiterSizeMultipleIndex;
+
+	let randomOrbiterIndex = Math.random();
+	randomOrbiterIndex *= orbiterIndexDiff;
+	randomOrbiterIndex = Math.round(randomOrbiterIndex);
+	randomOrbiterIndex += firstOrbiterSizeMultipleIndex;
+
+	const randomOrbiterSize = randomOrbiterIndex * iconSize;
+
+	const initialRotation = Math.floor(Math.random() * 360);
 
 	const iconRef = useRef<HTMLDivElement>(null);
 	const iconOrbiterRef = useRef<HTMLDivElement>(null);
 
 	const orbitAnimation = keyframes`
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	`;
+		from { transform: rotate(${initialRotation}deg); }
+		to { transform: rotate(${initialRotation + 360}deg); }
+		`;
 
 	const counterOrbit = keyframes`
-		from { transform: rotate(0deg); }
-		to { transform: rotate(-360deg); }
-	`;
+		from { transform: rotate(${-initialRotation}deg); }
+		to { transform: rotate(-${initialRotation + 360}deg); }
+		`;
 
-	const randomOrbiterSize = Math.floor(Math.random() * 400) + 300;
+	// const animationDuration = Math.floor(Math.random() * 5) + 10;
 	const animationDuration = Math.floor(Math.random() * 21) + 30;
 
 	const handleMouseEnter = (_event: React.MouseEvent<HTMLDivElement>) => {
@@ -54,35 +71,40 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 				height: randomOrbiterSize,
 
 				position: "absolute",
-				border: "2px dotted red",
+
+				// border: "2px dotted red",
 				borderRadius: "50%",
 				zIndex: 5,
 				display: "flex",
 				alignItems: "center",
 
-				animation: `${orbitAnimation} ${animationDuration}s linear infinite`,
+				transform: `rotate(${initialRotation}deg)`,
+
+				animation: `${orbitAnimation} ${animationDuration}s ease-in-out infinite`,
 			}}
 		>
-			<Box
-				key={`tech-skill-icon-${name}`}
-				sx={{
-					backgroundColor: primaryColor,
-					width: iconSize,
-					height: iconSize,
-					borderRadius: "15px",
-					display: "grid",
-					placeItems: "center",
-					transform: "translate(-50%, -50%)",
-					animation: `${counterOrbit} ${animationDuration}s linear infinite`,
-				}}
-				onMouseEnter={handleMouseEnter}
-				onMouseLeave={handleMouseLeave}
-			>
-				<img
-					src={`https://cdn.simpleicons.org/${name}/${secondaryColor}`}
-					alt={name}
-					width={iconSize / 2}
-				/>
+			<Box sx={{ transform: "translate(-50%, -50%)", cursor: "pointer" }}>
+				<Box
+					key={`tech-skill-icon-${name}`}
+					sx={{
+						backgroundColor: primaryColor,
+						width: iconSize,
+						height: iconSize,
+						borderRadius: "15px",
+						display: "grid",
+						placeItems: "center",
+						transform: `rotate(${-initialRotation}deg)`,
+						animation: `${counterOrbit} ${animationDuration}s ease-in-out infinite`,
+					}}
+					onMouseEnter={handleMouseEnter}
+					onMouseLeave={handleMouseLeave}
+				>
+					<img
+						src={`https://cdn.simpleicons.org/${name}/${secondaryColor}`}
+						alt={name}
+						width={iconSize / 2}
+					/>
+				</Box>
 			</Box>
 		</Box>
 	);

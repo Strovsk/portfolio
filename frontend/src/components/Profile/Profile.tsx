@@ -16,6 +16,11 @@ export default function Profile() {
 				width: containerSize,
 				height: containerSize,
 				margin: "3em",
+
+				display: "flex",
+				justifyContent: "center",
+				alignItems: "center",
+
 				[theme.breakpoints.down("sm")]: {
 					width: "100%",
 					height: "100%",
@@ -28,6 +33,11 @@ export default function Profile() {
 			<TechSkillIcon
 				name="Node.js"
 				primaryColor="#68A063"
+				secondaryColor="white"
+			/>
+			<TechSkillIcon
+				name="Laravel"
+				primaryColor="#FF3427"
 				secondaryColor="white"
 			/>
 			<object
