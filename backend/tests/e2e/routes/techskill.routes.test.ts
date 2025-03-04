@@ -6,8 +6,16 @@ import refreshDatabaseHelper from "@tests/helpers/refresh_database.helper";
 import httpStatus from "http-status-codes";
 import { TechSkillDto } from "@src/dto";
 import type { TechSkillModel } from "@src/models";
+import CreateJWTTokenService from "@src/services/Auth/CreateJWTToken.service";
+import { beforeEach } from "node:test";
 
 describe("TechSkill routes", () => {
+	beforeEach(() => {
+		process.env.USER = "admin";
+		process.env.PASSWORD = "admin";
+		process.env.SECRET = "secret-key";
+	});
+
 	it("should create a new techskill", async () => {
 		const app = new App();
 
@@ -23,6 +31,7 @@ describe("TechSkill routes", () => {
 
 		const response = await request(app.express)
 			.post("/techskill")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
 			.send(techSkillWithoutId);
 
 		expect(response.status).toBe(httpStatus.CREATED);
@@ -51,10 +60,14 @@ describe("TechSkill routes", () => {
 			techSkillWithoutId.endDate as Date
 		).toISOString();
 
-		await request(app.express).post("/techskill").send(techSkillWithoutId);
+		await request(app.express)
+			.post("/techskill")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
+			.send(techSkillWithoutId);
 
 		const response = await request(app.express)
 			.post("/techskill")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
 			.send(techSkillWithoutId);
 
 		expect(response.status).toBe(httpStatus.CONFLICT);
@@ -71,6 +84,7 @@ describe("TechSkill routes", () => {
 
 		const response = await request(app.express)
 			.put(`/techskill/${techSkill.id}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
 			.send(updateBody);
 
 		expect(response.status).toBe(httpStatus.OK);
@@ -89,6 +103,7 @@ describe("TechSkill routes", () => {
 
 		const response = await request(app.express)
 			.put(`/techskill/${techSkillB.id}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
 			.send(updateBody);
 
 		expect(response.status).toBe(httpStatus.CONFLICT);
@@ -103,6 +118,7 @@ describe("TechSkill routes", () => {
 
 		const response = await request(app.express)
 			.put(`/techskill/${nonExistentId}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`)
 			.send(updateBody);
 
 		expect(response.status).toBe(httpStatus.NOT_FOUND);
@@ -113,9 +129,9 @@ describe("TechSkill routes", () => {
 		const factory = new TechSkillFactory();
 		const techSkill = await factory.create();
 
-		const response = await request(app.express).get(
-			`/techskill/${techSkill.id}`,
-		);
+		const response = await request(app.express)
+			.get(`/techskill/${techSkill.id}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
 	});
@@ -124,9 +140,9 @@ describe("TechSkill routes", () => {
 		const app = new App();
 		const nonExistentId = "non-existent-id";
 
-		const response = await request(app.express).get(
-			`/techskill/${nonExistentId}`,
-		);
+		const response = await request(app.express)
+			.get(`/techskill/${nonExistentId}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.NOT_FOUND);
 	});
@@ -136,9 +152,9 @@ describe("TechSkill routes", () => {
 		const factory = new TechSkillFactory();
 		const techSkill = await factory.create();
 
-		const response = await request(app.express).delete(
-			`/techskill/${techSkill.id}`,
-		);
+		const response = await request(app.express)
+			.delete(`/techskill/${techSkill.id}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.NO_CONTENT);
 	});
@@ -147,9 +163,9 @@ describe("TechSkill routes", () => {
 		const app = new App();
 		const nonExistentId = "non-existent-id";
 
-		const response = await request(app.express).delete(
-			`/techskill/${nonExistentId}`,
-		);
+		const response = await request(app.express)
+			.delete(`/techskill/${nonExistentId}`)
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.NOT_FOUND);
 	});
@@ -166,7 +182,9 @@ describe("TechSkill routes", () => {
 			}),
 		);
 
-		const response = await request(app.express).get("/techskill");
+		const response = await request(app.express)
+			.get("/techskill")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
 		expect(response.body.length).toBe(5);
@@ -185,9 +203,9 @@ describe("TechSkill routes", () => {
 			}),
 		);
 
-		const response = await request(app.express).get(
-			"/techskill?name=TechSkill 1",
-		);
+		const response = await request(app.express)
+			.get("/techskill?name=TechSkill 1")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
 		expect(response.body.length).toBe(1);
@@ -206,9 +224,9 @@ describe("TechSkill routes", () => {
 			}),
 		);
 
-		const response = await request(app.express).get(
-			"/techskill?page=2&itemsPerPage=2",
-		);
+		const response = await request(app.express)
+			.get("/techskill?page=2&itemsPerPage=2")
+			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
 		expect(response.body.length).toBe(2);
