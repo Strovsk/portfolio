@@ -15,10 +15,12 @@ export default function AuthorizateService(token: string | undefined): {
 		};
 	}
 
+	const filteredToken = token.replace(/[Bb]earer\s+/, "");
+
 	const config = new Config();
 
 	try {
-		const data = jwt.verify(token, config.env.secret) as jwt.JwtPayload;
+		const data = jwt.verify(filteredToken, config.env.secret) as jwt.JwtPayload;
 		return { isAuthorized: true, message: data.data, status: httpStatus.OK };
 	} catch (error) {
 		if (error instanceof jwt.TokenExpiredError) {
