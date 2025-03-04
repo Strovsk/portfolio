@@ -1,5 +1,5 @@
 import express, { type Express } from "express";
-import { healthCheckRouter, techSkillRouter } from "./routes";
+import * as routers from "./routes";
 import { ErrorHandlerMiddleware } from "./middlewares/apiError.middleware";
 
 export default class App {
@@ -10,8 +10,9 @@ export default class App {
 
 		this.express.use(express.json());
 		this.express.use(ErrorHandlerMiddleware);
-		this.express.use("/healthcheck", healthCheckRouter);
-		this.express.use("/techskill", techSkillRouter);
+		this.express.use("/healthcheck", routers.healthCheckRouter);
+		this.express.use("/techskill", routers.techSkillRouter);
+		this.express.use("/login", routers.loginRouter);
 	}
 	public start(port = 3000) {
 		this.express.listen(port, () => {
