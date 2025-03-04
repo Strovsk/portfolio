@@ -1,10 +1,13 @@
 import { Router } from "express";
 import { TechSkillController } from "@src/controllers";
 import ValidateMiddleware from "@src/middlewares/validate.middleware";
+import AuthorizationMiddleware from "@src/middlewares/authorization.middleware";
 import Requests from "@src/requests";
 
 const techSkillRouter = Router();
 const techSkillController = new TechSkillController();
+
+techSkillRouter.use(AuthorizationMiddleware);
 
 techSkillRouter.get("/", techSkillController.list);
 
