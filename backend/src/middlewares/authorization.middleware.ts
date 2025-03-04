@@ -6,7 +6,12 @@ export default function AuthorizationMiddleware(
 	res: Response,
 	next: NextFunction,
 ) {
-	const { authorization: authToken } = req.cookies;
+	if (!req.cookies) {
+		res.status(400).json({ message: "Authorization not supplied" });
+		return;
+	}
+
+	const { authorization: authToken = undefined } = req.cookies;
 
 	const { isAuthorized, message, status } = AuthorizateService(authToken);
 
