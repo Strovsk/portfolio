@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 
 import { screen, render } from "@testing-library/react";
-import WellcomeMessage from "./WellcomeMessage";
+import WellcomeMessage from "./WelcomeMessage";
 
 describe("<Menu />", () => {
 	it("Should redirect to the right links", () => {
