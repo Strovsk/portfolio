@@ -1,5 +1,6 @@
 import { Box, Button, Grid2, TextField, Typography } from "@mui/material";
 import BackgroundAccent from "./BackgroundAccent.component";
+import { LoginTextField } from "./LoginTextField.component";
 
 export default function LoginPage() {
 	return (
@@ -38,8 +39,12 @@ export default function LoginPage() {
 				>
 					Welcome
 				</Typography>
-				<TextField label="email" variant="standard" />
-				<TextField label="password" type="password" variant="standard" />
+				<LoginTextField label="email" variant="standard" placeholder="email" />
+				<LoginTextField
+					label="password"
+					variant="standard"
+					placeholder="password"
+				/>
 				<Button variant="contained" color="primary">
 					Login
 				</Button>
