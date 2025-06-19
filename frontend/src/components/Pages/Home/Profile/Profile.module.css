@@ -9,7 +9,11 @@
 
 .ProfileBackgroundSX,
 .ProfileBackground {
-  opacity: 0.5;
+  opacity: 1;
+
+  @media (max-width: 1395px) {
+    opacity: 0.5;
+  }
 }
 
 .ProfileBackground,

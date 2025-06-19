@@ -4,8 +4,12 @@
   transform: translateX(-50%) rotate(180deg) scale(1.1);
   position: absolute;
   z-index: -2;
-  opacity: 10%;
   animation: appear_an_disappear ease-in-out 2s infinite alternate;
+  bottom: -20%;
+
+  @media (max-width: 1395px) {
+    opacity: 10%;
+  }
 }
 
 @keyframes appear_and_disappear {
