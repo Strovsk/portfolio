@@ -14,7 +14,7 @@ export default class App {
 		this.express.use("/techskill", routers.techSkillRouter);
 		this.express.use("/login", routers.loginRouter);
 	}
-	public start(port = 3000) {
+	public start(port = 3100) {
 		this.express.listen(port, () => {
 			console.log(`App listening on port ${port}`);
 		});
