@@ -1,8 +1,36 @@
-import { Box, Button, Grid2, TextField, Typography } from "@mui/material";
+"use client";
+
+import { Box, Button, Typography } from "@mui/material";
 import BackgroundAccent from "./BackgroundAccent.component";
 import { LoginTextField } from "./LoginTextField.component";
+import { signIn } from "next-auth/react";
+import { useFormik } from "formik";
 
 export default function LoginPage() {
+	const form = useFormik({
+		initialValues: {
+			user: "",
+			password: "",
+		},
+		validate: (values) => {
+			const errors: { user?: string; password?: string } = {};
+			if (!values.user) {
+				errors.user = "user is required";
+			}
+			if (!values.password) {
+				errors.password = "Password is required";
+			}
+			return errors;
+		},
+		onSubmit: async (values) => {
+			const result = await signIn("credentials", {
+				...values,
+				callbackUrl: "/config/tech_skills",
+			});
+			console.log("Login result:", result);
+		},
+	});
+
 	return (
 		<Box
 			width="100vw"
@@ -39,13 +67,33 @@ export default function LoginPage() {
 				>
 					Welcome
 				</Typography>
-				<LoginTextField label="email" variant="standard" placeholder="email" />
+				<LoginTextField
+					label="user"
+					variant="standard"
+					placeholder="user"
+					{...form.getFieldProps("user")}
+				/>
+				{form.touched.user && form.errors.user && (
+					<Typography color="error" fontSize="12px">
+						{form.errors.user}
+					</Typography>
+				)}
 				<LoginTextField
 					label="password"
 					variant="standard"
 					placeholder="password"
+					{...form.getFieldProps("password")}
 				/>
-				<Button variant="contained" color="primary">
+				{form.touched.password && form.errors.password && (
+					<Typography color="error" fontSize="12px">
+						{form.errors.password}
+					</Typography>
+				)}
+				<Button
+					variant="contained"
+					color="primary"
+					onClick={() => form.handleSubmit()}
+				>
 					Login
 				</Button>
 			</Box>
