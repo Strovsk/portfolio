@@ -23,7 +23,7 @@ const theme = createTheme({
 			secondary: "rgb(94, 94, 94)",
 		},
 		action: {
-			active: "blue",
+			active: "rgb(9, 23, 36)",
 		},
 	},
 	breakpoints: {
