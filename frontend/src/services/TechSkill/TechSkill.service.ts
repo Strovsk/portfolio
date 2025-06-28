@@ -1,7 +1,8 @@
 import { fetchAuth } from "@/utils/fetchAuth";
 import { useQuery } from "@tanstack/react-query";
+import type { TechSkill } from "./TechSkill.schema";
 
-export const listTechSkills = async () => {
+export const listTechSkills = async (): Promise<TechSkill[]> => {
 	const response = await fetchAuth("/techskill");
 
 	if (!response.ok) {
