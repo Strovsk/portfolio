@@ -1,3 +1,14 @@
+export interface TechSkillCardProps {
+	id: string;
+	name: string;
+	primaryColor: string;
+	secondaryColor: string;
+	link: string;
+	description?: string;
+	startDate?: Date | string;
+	endDate?: Date | string;
+}
+
 export const convertDateToString = (
 	date: Date | string | undefined,
 ): string => {
