@@ -2,12 +2,14 @@ import { Box, ClickAwayListener, Fade, Typography } from "@mui/material";
 import React from "react";
 import { Sketch } from "@uiw/react-color";
 import { keyframes } from "@emotion/react";
+import type { FieldProps } from "formik";
+import type { TechSkillCardProps } from "./TechSkillCard.consts";
 
 const bounceAnimation = keyframes`0% { transform: translateY(0) scaleY(0.9); } 100% { transform: translateY(-3px) scaleY(1); }`;
 
 interface ColorSelectorProps {
 	label: string;
-	color: string;
+	fieldProps: FieldProps<TechSkillCardProps>;
 }
 
 export const ColorSelector = (props: ColorSelectorProps) => {
@@ -19,12 +21,21 @@ export const ColorSelector = (props: ColorSelectorProps) => {
 				display="flex"
 				flexDirection="column"
 				alignItems="flex-start"
+				width={"40%"}
 				gap="5px"
 				sx={{ position: "relative" }}
 			>
 				<Fade in={openColorPicker} timeout={300}>
 					<Box sx={{ position: "absolute", top: "100%", zIndex: 7 }}>
-						<Sketch color={props.color} />
+						<Sketch
+							color={props.fieldProps.field.value as unknown as string}
+							onChange={(color) => {
+								props.fieldProps.form.setFieldValue(
+									props.fieldProps.field.name,
+									color.hex,
+								);
+							}}
+						/>
 					</Box>
 				</Fade>
 				<Typography color="primary" variant="caption">
@@ -40,7 +51,7 @@ export const ColorSelector = (props: ColorSelectorProps) => {
 						width={20}
 						height={20}
 						borderRadius="50%"
-						bgcolor={props.color}
+						bgcolor={props.fieldProps.field.value as unknown as string}
 						border="1px solid #ccc"
 						sx={{
 							cursor: "pointer",
@@ -54,7 +65,9 @@ export const ColorSelector = (props: ColorSelectorProps) => {
 						}}
 						onClick={() => setOpenColorPicker(!openColorPicker)}
 					/>
-					<Typography sx={{ color: "#123123" }}>{props.color}</Typography>
+					<Typography sx={{ color: "#123123" }}>
+						{props.fieldProps.field.value as unknown as string}
+					</Typography>
 				</Box>
 			</Box>
 		</ClickAwayListener>
