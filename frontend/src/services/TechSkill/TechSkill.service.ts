@@ -1,5 +1,6 @@
+"use server";
+
 import { fetchAuth } from "@/utils/fetchAuth";
-import { useQuery } from "@tanstack/react-query";
 import type { TechSkill } from "./TechSkill.schema";
 
 export const listTechSkills = async (): Promise<TechSkill[]> => {
@@ -14,8 +15,22 @@ export const listTechSkills = async (): Promise<TechSkill[]> => {
 	return result;
 };
 
-export const useListTechSkills = () =>
-	useQuery({
-		queryKey: ["techSkills"],
-		queryFn: listTechSkills,
+export const updateTechSkill = async (
+	updatedTechSkill: TechSkill,
+): Promise<TechSkill> => {
+	const response = await fetchAuth(`/techskill/${updatedTechSkill.id}`, {
+		method: "PUT",
+		body: JSON.stringify(updatedTechSkill),
+		headers: {
+			"Content-Type": "application/json",
+		},
 	});
+
+	if (!response.ok) {
+		const textError = await response.text();
+		throw new Error(`Failed to update tech skill because ${textError}`);
+	}
+
+	const result = await response.json();
+	return result;
+};
