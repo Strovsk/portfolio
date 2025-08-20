@@ -120,7 +120,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 							borderRadius={"10px"}
 							bgcolor={form.values.primaryColor}
 							sx={{
-								backgroundImage: `url(https://cdn.simpleicons.org/${props.name}/${form.values.secondaryColor})`,
+								backgroundImage: `url(https://cdn.simpleicons.org/${form.values.name}/${form.values.secondaryColor.replace("#", "")})`,
 								backgroundRepeat: "no-repeat",
 								backgroundPosition: "center",
 								backgroundSize: "60%",
