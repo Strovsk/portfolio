@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Fade, IconButton } from "@mui/material";
+import { Box, CircularProgress, Fade, IconButton } from "@mui/material";
 import type React from "react";
 import { ColorSelector } from "./ColorSelector";
 import type { TechSkillCardProps } from "./TechSkillCard.consts";
@@ -8,7 +8,8 @@ import { Field, type FieldProps, Formik, type FormikProps } from "formik";
 import CheckIcon from "@mui/icons-material/Check";
 import ReplayIcon from "@mui/icons-material/Replay";
 import { SkillDateSelector } from "./SkillDateSelector";
-
+import { useUpdateTechSkills } from "@/services/TechSkill/TechSkill.query";
+import Swal from "sweetalert2";
 const TechSkillCard = (props: TechSkillCardProps) => {
 	const width = 300;
 
@@ -22,6 +23,8 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		fontFamily: "inter",
 	};
 
+	const updateTechSkill = useUpdateTechSkills();
+
 	return (
 		<Formik<TechSkillCardProps>
 			initialValues={{
@@ -34,8 +37,33 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 				startDate: props.startDate || "",
 				endDate: props.endDate || "",
 			}}
-			onSubmit={(values) => {
-				console.log("Form submitted with values:", values);
+			onSubmit={async (values, helpers) => {
+				const isValid = await helpers.validateForm();
+
+				if (isValid) {
+					updateTechSkill
+						.mutateAsync({
+							id: props.id,
+							name: values.name,
+							shortDescription: values.description || "",
+							link: values.link,
+							startDate: new Date().toISOString(),
+							endDate: new Date().toISOString(),
+							primaryColor: values.primaryColor,
+							secondaryColor: values.secondaryColor,
+						})
+						.then(() => {
+							helpers.resetForm({ values });
+						})
+						.catch((error) => {
+							console.error("There's something strange here bud:", error);
+							Swal.fire({
+								icon: "error",
+								title: "Update Failed",
+								text: "There's something strange here bud",
+							});
+						});
+				}
 			}}
 		>
 			{(form: FormikProps<TechSkillCardProps>) => (
@@ -64,12 +92,19 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 							right={10}
 							borderRadius={"10px"}
 						>
-							<IconButton onClick={() => form.submitForm()}>
+							<IconButton
+								onClick={() => form.submitForm()}
+								disabled={updateTechSkill.isPending}
+							>
 								<CheckIcon color="primary" fontSize="small" />
 							</IconButton>
-							<IconButton onClick={() => form.resetForm()}>
+							<IconButton
+								onClick={() => form.resetForm()}
+								disabled={updateTechSkill.isPending}
+							>
 								<ReplayIcon color="primary" fontSize="small" />
 							</IconButton>
+							{updateTechSkill.isPending && <CircularProgress size={24} />}
 						</Box>
 					</Fade>
 					<Box
