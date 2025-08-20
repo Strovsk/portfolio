@@ -35,9 +35,16 @@ export default async function TechSkillsPage() {
 				</Button>
 			</Box>
 
-			<Grid2 display={"flex"} container flexDirection={"row"} gap={"16px"}>
+			<Grid2
+				display={"flex"}
+				container
+				flexDirection={"row"}
+				gap={"16px"}
+				rowGap={"30px"}
+			>
 				{techLists.map((tech) => (
 					<TechSkillCard
+						id={tech.id}
 						key={tech.id}
 						name={tech.name}
 						primaryColor={tech.primaryColor}
@@ -49,8 +56,6 @@ export default async function TechSkillsPage() {
 					/>
 				))}
 			</Grid2>
-
-			<pre>{JSON.stringify(techLists, null, 2)}</pre>
 		</Box>
 	);
 }
