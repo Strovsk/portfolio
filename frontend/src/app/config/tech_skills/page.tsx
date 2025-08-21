@@ -12,7 +12,7 @@ export default async function TechSkillsPage() {
 		<Box
 			data-name="tech-skills-container"
 			sx={{
-				paddingInline: "80px",
+				paddingInline: "40px",
 				paddingBlock: "100px",
 				display: "flex",
 				rowGap: "70px",
@@ -41,6 +41,11 @@ export default async function TechSkillsPage() {
 				flexDirection={"row"}
 				gap={"16px"}
 				rowGap={"30px"}
+				sx={{
+					overflowY: "auto",
+					padding: "8px",
+					paddingTop: "25px",
+				}}
 			>
 				{techLists.map((tech) => (
 					<TechSkillCard
