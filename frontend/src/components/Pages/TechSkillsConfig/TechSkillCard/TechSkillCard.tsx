@@ -4,11 +4,21 @@ import { Box, CircularProgress, Fade, IconButton } from "@mui/material";
 import type React from "react";
 import { ColorSelector } from "./ColorSelector";
 import type { TechSkillCardProps } from "./TechSkillCard.consts";
-import { Field, type FieldProps, Formik, type FormikProps } from "formik";
+import {
+	Field,
+	type FieldProps,
+	Formik,
+	type FormikHelpers,
+	type FormikProps,
+} from "formik";
 import CheckIcon from "@mui/icons-material/Check";
 import ReplayIcon from "@mui/icons-material/Replay";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { SkillDateSelector } from "./SkillDateSelector";
-import { useUpdateTechSkills } from "@/services/TechSkill/TechSkill.query";
+import {
+	useDeleteTechSkills,
+	useUpdateTechSkills,
+} from "@/services/TechSkill/TechSkill.query";
 import Swal from "sweetalert2";
 const TechSkillCard = (props: TechSkillCardProps) => {
 	const width = 300;
@@ -24,6 +34,70 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 	};
 
 	const updateTechSkill = useUpdateTechSkills();
+	const deleteTechSkill = useDeleteTechSkills();
+
+	const handleDelete = () => {
+		Swal.fire({
+			icon: "warning",
+			title: "Are you sure?",
+			text: "This action cannot be undone.",
+			showCancelButton: true,
+			confirmButtonText: "Delete",
+			cancelButtonText: "Cancel",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				deleteTechSkill
+					.mutateAsync(props.id)
+					.then(() => {
+						Swal.fire({
+							icon: "success",
+							title: "Deleted!",
+							text: "Your tech skill has been deleted.",
+						});
+					})
+					.catch((error) => {
+						console.error("There's something strange here bud:", error);
+						Swal.fire({
+							icon: "error",
+							title: "Delete Failed",
+							text: "There's something strange here bud",
+						});
+					});
+			}
+		});
+	};
+
+	const handleUpdate = async (
+		values: TechSkillCardProps,
+		helpers: FormikHelpers<TechSkillCardProps>,
+	) => {
+		const isValid = await helpers.validateForm();
+
+		if (isValid) {
+			updateTechSkill
+				.mutateAsync({
+					id: props.id,
+					name: values.name,
+					shortDescription: values.description || "",
+					link: values.link,
+					startDate: new Date().toISOString(),
+					endDate: new Date().toISOString(),
+					primaryColor: values.primaryColor,
+					secondaryColor: values.secondaryColor,
+				})
+				.then(() => {
+					helpers.resetForm({ values });
+				})
+				.catch((error) => {
+					console.error("There's something strange here bud:", error);
+					Swal.fire({
+						icon: "error",
+						title: "Update Failed",
+						text: "There's something strange here bud",
+					});
+				});
+		}
+	};
 
 	return (
 		<Formik<TechSkillCardProps>
@@ -37,34 +111,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 				startDate: props.startDate || "",
 				endDate: props.endDate || "",
 			}}
-			onSubmit={async (values, helpers) => {
-				const isValid = await helpers.validateForm();
-
-				if (isValid) {
-					updateTechSkill
-						.mutateAsync({
-							id: props.id,
-							name: values.name,
-							shortDescription: values.description || "",
-							link: values.link,
-							startDate: new Date().toISOString(),
-							endDate: new Date().toISOString(),
-							primaryColor: values.primaryColor,
-							secondaryColor: values.secondaryColor,
-						})
-						.then(() => {
-							helpers.resetForm({ values });
-						})
-						.catch((error) => {
-							console.error("There's something strange here bud:", error);
-							Swal.fire({
-								icon: "error",
-								title: "Update Failed",
-								text: "There's something strange here bud",
-							});
-						});
-				}
-			}}
+			onSubmit={handleUpdate}
 		>
 			{(form: FormikProps<TechSkillCardProps>) => (
 				<Box
@@ -80,33 +127,49 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 					rowGap={"1rem"}
 					position={"relative"}
 				>
-					<Fade in={form.dirty}>
-						<Box
-							display={"flex"}
-							data-name="tech-skill-card-actions"
-							flexDirection="row"
-							boxShadow={"0 4px 10px rgba(27, 27, 27, 0.29)"}
-							position="absolute"
-							bgcolor={"#eee"}
-							top={-20}
-							right={10}
-							borderRadius={"10px"}
-						>
-							<IconButton
-								onClick={() => form.submitForm()}
-								disabled={updateTechSkill.isPending}
-							>
-								<CheckIcon color="primary" fontSize="small" />
-							</IconButton>
-							<IconButton
-								onClick={() => form.resetForm()}
-								disabled={updateTechSkill.isPending}
-							>
-								<ReplayIcon color="primary" fontSize="small" />
-							</IconButton>
-							{updateTechSkill.isPending && <CircularProgress size={24} />}
-						</Box>
-					</Fade>
+					<Box
+						display={"flex"}
+						data-name="tech-skill-card-actions"
+						flexDirection="row"
+						alignItems="center"
+						justifyContent={"space-around"}
+						boxShadow={"0 4px 10px rgba(27, 27, 27, 0.29)"}
+						position="absolute"
+						bgcolor={"#eee"}
+						top={-20}
+						right={10}
+						borderRadius={"10px"}
+						sx={{ transition: "width 0.5s ease", width: form.dirty ? 160 : 40 }}
+					>
+						{form.dirty && (
+							<Fade in={form.dirty} timeout={500}>
+								<IconButton
+									onClick={() => form.submitForm()}
+									disabled={updateTechSkill.isPending}
+								>
+									<CheckIcon color="primary" fontSize="small" />
+								</IconButton>
+							</Fade>
+						)}
+						{form.dirty && (
+							<Fade in={form.dirty} timeout={500}>
+								<IconButton
+									onClick={() => form.resetForm()}
+									disabled={updateTechSkill.isPending}
+								>
+									<ReplayIcon color="primary" fontSize="small" />
+								</IconButton>
+							</Fade>
+						)}
+						<IconButton>
+							<DeleteIcon
+								color="primary"
+								fontSize="small"
+								onClick={handleDelete}
+							/>
+						</IconButton>
+						{updateTechSkill.isPending && <CircularProgress size={24} />}
+					</Box>
 					<Box
 						display={"flex"}
 						alignItems={"center"}
