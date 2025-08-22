@@ -34,3 +34,34 @@ export const updateTechSkill = async (
 	const result = await response.json();
 	return result;
 };
+
+export const deleteTechSkill = async (id: string): Promise<void> => {
+	const response = await fetchAuth(`/techskill/${id}`, {
+		method: "DELETE",
+	});
+
+	if (!response.ok) {
+		const textError = await response.text();
+		throw new Error(`Failed to delete tech skill because ${textError}`);
+	}
+};
+
+export const createTechSkill = async (
+	newTechSkill: Omit<TechSkill, "id">,
+): Promise<TechSkill> => {
+	const response = await fetchAuth("/techskill", {
+		method: "POST",
+		body: JSON.stringify(newTechSkill),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	if (!response.ok) {
+		const textError = await response.text();
+		throw new Error(`Failed to create tech skill because ${textError}`);
+	}
+
+	const result = await response.json();
+	return result;
+};
