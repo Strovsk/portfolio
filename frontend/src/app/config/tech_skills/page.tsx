@@ -45,6 +45,7 @@ export default async function TechSkillsPage() {
 					overflowY: "auto",
 					padding: "8px",
 					paddingTop: "25px",
+					height: "100%",
 				}}
 			>
 				{techLists.map((tech) => (

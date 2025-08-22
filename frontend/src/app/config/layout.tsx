@@ -24,7 +24,7 @@ export default function ConfigLayout({
 						]}
 					/>
 				</Box>
-				<Box>{children}</Box>
+				<Box sx={{ width: "100%", overflowY: "hidden" }}>{children}</Box>
 			</Grid2>
 		</Providers>
 	);
