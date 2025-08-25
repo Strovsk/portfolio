@@ -20,6 +20,7 @@ import {
 	useUpdateTechSkills,
 } from "@/services/TechSkill/TechSkill.query";
 import Swal from "sweetalert2";
+import { Actions } from "./Actions";
 const TechSkillCard = (props: TechSkillCardProps) => {
 	const width = 300;
 
@@ -127,20 +128,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 					rowGap={"1rem"}
 					position={"relative"}
 				>
-					<Box
-						display={"flex"}
-						data-name="tech-skill-card-actions"
-						flexDirection="row"
-						alignItems="center"
-						justifyContent={"space-around"}
-						boxShadow={"0 4px 10px rgba(27, 27, 27, 0.29)"}
-						position="absolute"
-						bgcolor={"#eee"}
-						top={-20}
-						right={10}
-						borderRadius={"10px"}
-						sx={{ transition: "width 0.5s ease", width: form.dirty ? 160 : 40 }}
-					>
+					<TechSkillCard.Actions isExpanded={form.dirty} isCreating={false}>
 						{form.dirty && (
 							<Fade in={form.dirty} timeout={500}>
 								<IconButton
@@ -169,7 +157,8 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 							/>
 						</IconButton>
 						{updateTechSkill.isPending && <CircularProgress size={24} />}
-					</Box>
+					</TechSkillCard.Actions>
+
 					<Box
 						display={"flex"}
 						alignItems={"center"}
@@ -257,5 +246,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		</Formik>
 	);
 };
+
+TechSkillCard.Actions = Actions;
 
 export default TechSkillCard;
