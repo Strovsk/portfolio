@@ -1,16 +1,24 @@
-import { listTechSkills } from "@/services/hooks/TechSkill.service";
+import TechSkillList from "@/components/Pages/TechSkillsConfig/TechSkillList";
+import { Box, Typography } from "@mui/material";
+import React from "react";
 
 export default async function TechSkillsPage() {
-	const techLists = await listTechSkills();
-
-	console.log("Tech Skills Page - techLists:", techLists);
-
 	return (
-		<div>
-			<h1>Tech Skills (protected page)</h1>
-			<p>This page is under construction.</p>
+		<Box
+			data-name="tech-skills-container"
+			sx={{
+				paddingInline: "40px",
+				paddingBlock: "100px",
+				display: "flex",
+				rowGap: "70px",
+				flexFlow: "column nowrap",
+			}}
+		>
+			<Typography variant="h2" fontWeight={300} color="#000">
+				Tech Skills
+			</Typography>
 
-			<pre>{JSON.stringify(techLists, null, 2)}</pre>
-		</div>
+			<TechSkillList />
+		</Box>
 	);
 }
