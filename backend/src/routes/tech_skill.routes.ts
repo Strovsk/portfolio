@@ -5,11 +5,12 @@ import AuthorizationMiddleware from "@src/middlewares/authorization.middleware";
 import Requests from "@src/requests";
 
 const techSkillRouter = Router();
+const publicTechSkillRouter = Router();
 const techSkillController = new TechSkillController();
 
 techSkillRouter.use(AuthorizationMiddleware);
 
-techSkillRouter.get("/", techSkillController.list);
+publicTechSkillRouter.get("/", techSkillController.list);
 
 techSkillRouter.post(
 	"/",
@@ -29,4 +30,5 @@ techSkillRouter.delete("/:id", techSkillController.delete);
 
 techSkillRouter.get("/list", techSkillController.list);
 
+export { publicTechSkillRouter };
 export default techSkillRouter;

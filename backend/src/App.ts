@@ -12,6 +12,7 @@ export default class App {
 		this.express.use(ErrorHandlerMiddleware);
 		this.express.use("/healthcheck", routers.healthCheckRouter);
 		this.express.use("/techskill", routers.techSkillRouter);
+		this.express.use("/public/techskill", routers.publicTechSkillRouter);
 		this.express.use("/login", routers.loginRouter);
 	}
 	public start(port = 3100) {
