@@ -100,7 +100,7 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 					onMouseLeave={handleMouseLeave}
 				>
 					<img
-						src={`https://cdn.simpleicons.org/${name}/${secondaryColor}`}
+						src={`https://cdn.simpleicons.org/${name}/${secondaryColor.replace("#", "")}`}
 						alt={name}
 						width={iconSize / 2}
 					/>
