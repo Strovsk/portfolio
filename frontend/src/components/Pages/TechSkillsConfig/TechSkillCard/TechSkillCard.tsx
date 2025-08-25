@@ -21,6 +21,7 @@ import {
 } from "@/services/TechSkill/TechSkill.query";
 import Swal from "sweetalert2";
 import { Actions } from "./Actions";
+import { CardBase } from "./CardBase";
 const TechSkillCard = (props: TechSkillCardProps) => {
 	const width = 300;
 
@@ -115,18 +116,9 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 			onSubmit={handleUpdate}
 		>
 			{(form: FormikProps<TechSkillCardProps>) => (
-				<Box
-					data-name="tech-skill-card"
+				<TechSkillCard.CardBase
 					width={width}
-					height={(width * 3) / 4}
-					boxShadow={"0 4px 10px rgba(27, 27, 27, 0.29)"}
-					borderRadius={"16px"}
-					paddingBlock={"15px"}
-					paddingInline={"30px"}
-					display={"flex"}
-					flexDirection={"column"}
-					rowGap={"1rem"}
-					position={"relative"}
+					isCreating={props.mode === "create"}
 				>
 					<TechSkillCard.Actions
 						isExpanded={form.dirty}
@@ -244,12 +236,13 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 							</Field>
 						</Box>
 					</Box>
-				</Box>
+				</TechSkillCard.CardBase>
 			)}
 		</Formik>
 	);
 };
 
+TechSkillCard.CardBase = CardBase;
 TechSkillCard.Actions = Actions;
 
 export default TechSkillCard;
