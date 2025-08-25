@@ -4,6 +4,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/providers/theme";
 import { Inter } from "next/font/google";
+import { ClientProviders } from "@/providers/ClientProviders";
 
 const inter = Inter({
 	weight: ["400", "700"],
@@ -25,9 +26,7 @@ export default function RootLayout({
 	return (
 		<html lang="pt-BR">
 			<body className={inter.variable}>
-				<AppRouterCacheProvider>
-					<ThemeProvider theme={theme}>{children}</ThemeProvider>
-				</AppRouterCacheProvider>
+				<ClientProviders>{children}</ClientProviders>
 			</body>
 		</html>
 	);
