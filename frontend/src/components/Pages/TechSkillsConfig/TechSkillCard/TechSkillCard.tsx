@@ -128,7 +128,10 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 					rowGap={"1rem"}
 					position={"relative"}
 				>
-					<TechSkillCard.Actions isExpanded={form.dirty} isCreating={false}>
+					<TechSkillCard.Actions
+						isExpanded={form.dirty}
+						isCreating={props.mode === "create"}
+					>
 						{form.dirty && (
 							<Fade in={form.dirty} timeout={500}>
 								<IconButton

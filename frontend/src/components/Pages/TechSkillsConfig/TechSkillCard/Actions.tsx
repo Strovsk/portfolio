@@ -8,6 +8,8 @@ interface ActionsProps {
 }
 
 export const Actions = (props: ActionsProps) => {
+	if (props.isCreating) return;
+
 	return (
 		<Box
 			display={"flex"}

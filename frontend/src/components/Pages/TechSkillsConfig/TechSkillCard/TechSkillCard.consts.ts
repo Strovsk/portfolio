@@ -7,6 +7,7 @@ export interface TechSkillCardProps {
 	description?: string;
 	startDate?: Date | string;
 	endDate?: Date | string;
+	mode?: "edit" | "create" | "view";
 }
 
 export const convertDateToString = (
