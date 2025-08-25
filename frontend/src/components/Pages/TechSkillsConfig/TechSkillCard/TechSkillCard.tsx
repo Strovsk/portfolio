@@ -23,7 +23,10 @@ import {
 import Swal from "sweetalert2";
 import { Actions } from "./Actions";
 import { CardBase } from "./CardBase";
+
 const TechSkillCard = (props: TechSkillCardProps) => {
+	const { mode: cardMode = "edit" } = props;
+
 	const width = 300;
 
 	const fieldTextStyles: React.CSSProperties = {
@@ -159,7 +162,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 				values: TechSkillCardProps,
 				helpers: FormikHelpers<TechSkillCardProps>,
 			) => {
-				switch (props.mode) {
+				switch (cardMode) {
 					case "create":
 						handleCreate(values, helpers);
 						break;
@@ -174,11 +177,11 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 			{(form: FormikProps<TechSkillCardProps>) => (
 				<TechSkillCard.CardBase
 					width={width}
-					isCreating={props.mode === "create"}
+					isCreating={cardMode === "create"}
 				>
 					<TechSkillCard.Actions
 						isExpanded={form.dirty}
-						isCreating={props.mode === "create"}
+						isCreating={cardMode === "create"}
 					>
 						{form.dirty && (
 							<Fade in={form.dirty} timeout={500}>
@@ -291,7 +294,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 								)}
 							</Field>
 						</Box>
-						{props.mode === "create" && (
+						{cardMode === "create" && (
 							<Box
 								sx={{
 									display: "flex",
