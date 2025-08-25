@@ -12,7 +12,7 @@ import type { TechSkill } from "./TechSkill.schema";
 export const useListTechSkills = () =>
 	useQuery({
 		queryKey: ["techSkills"],
-		queryFn: listTechSkills,
+		queryFn: async () => await listTechSkills(),
 	});
 
 export const useUpdateTechSkills = () =>

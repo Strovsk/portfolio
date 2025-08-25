@@ -1,5 +1,5 @@
 export interface TechSkillCardProps {
-	id: string;
+	id?: string;
 	name: string;
 	primaryColor: string;
 	secondaryColor: string;
@@ -8,6 +8,8 @@ export interface TechSkillCardProps {
 	startDate?: Date | string;
 	endDate?: Date | string;
 	mode?: "edit" | "create" | "view";
+	onCreate?: (success: boolean) => void;
+	onDelete?: (success: boolean) => void;
 }
 
 export const convertDateToString = (

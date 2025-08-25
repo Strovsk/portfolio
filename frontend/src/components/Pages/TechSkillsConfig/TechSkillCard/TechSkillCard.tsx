@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, CircularProgress, Fade, IconButton } from "@mui/material";
+import { Box, Button, CircularProgress, Fade, IconButton } from "@mui/material";
 import type React from "react";
 import { ColorSelector } from "./ColorSelector";
 import type { TechSkillCardProps } from "./TechSkillCard.consts";
@@ -16,6 +16,7 @@ import ReplayIcon from "@mui/icons-material/Replay";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { SkillDateSelector } from "./SkillDateSelector";
 import {
+	useCreateTechSkills,
 	useDeleteTechSkills,
 	useUpdateTechSkills,
 } from "@/services/TechSkill/TechSkill.query";
@@ -35,6 +36,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		fontFamily: "inter",
 	};
 
+	const createTechSkill = useCreateTechSkills();
 	const updateTechSkill = useUpdateTechSkills();
 	const deleteTechSkill = useDeleteTechSkills();
 
@@ -49,13 +51,14 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				deleteTechSkill
-					.mutateAsync(props.id)
+					.mutateAsync(props.id as string)
 					.then(() => {
 						Swal.fire({
 							icon: "success",
 							title: "Deleted!",
 							text: "Your tech skill has been deleted.",
 						});
+						if (props.onDelete) props.onDelete(true);
 					})
 					.catch((error) => {
 						console.error("There's something strange here bud:", error);
@@ -64,6 +67,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 							title: "Delete Failed",
 							text: "There's something strange here bud",
 						});
+						if (props.onDelete) props.onDelete(false);
 					});
 			}
 		});
@@ -78,7 +82,7 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		if (isValid) {
 			updateTechSkill
 				.mutateAsync({
-					id: props.id,
+					id: props.id as string,
 					name: values.name,
 					shortDescription: values.description || "",
 					link: values.link,
@@ -101,6 +105,44 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 		}
 	};
 
+	const handleCreate = async (
+		values: TechSkillCardProps,
+		helpers: FormikHelpers<TechSkillCardProps>,
+	) => {
+		const isValid = await helpers.validateForm();
+
+		if (isValid) {
+			createTechSkill
+				.mutateAsync({
+					name: values.name,
+					shortDescription: values.description || "",
+					link: values.link,
+					startDate: new Date().toISOString(),
+					endDate: new Date().toISOString(),
+					primaryColor: values.primaryColor,
+					secondaryColor: values.secondaryColor,
+				})
+				.then(() => {
+					helpers.resetForm({ values });
+					if (props.onCreate) props.onCreate(true);
+					Swal.fire({
+						icon: "success",
+						title: "Created!",
+						text: "Your tech skill has been created.",
+					});
+				})
+				.catch((error) => {
+					console.error("There's something strange here bud:", error);
+					Swal.fire({
+						icon: "error",
+						title: "Create Failed",
+						text: "There's something strange here bud",
+					});
+					if (props.onCreate) props.onCreate(false);
+				});
+		}
+	};
+
 	return (
 		<Formik<TechSkillCardProps>
 			initialValues={{
@@ -113,7 +155,21 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 				startDate: props.startDate || "",
 				endDate: props.endDate || "",
 			}}
-			onSubmit={handleUpdate}
+			onSubmit={(
+				values: TechSkillCardProps,
+				helpers: FormikHelpers<TechSkillCardProps>,
+			) => {
+				switch (props.mode) {
+					case "create":
+						handleCreate(values, helpers);
+						break;
+					case "edit":
+						handleUpdate(values, helpers);
+						break;
+					default:
+						break;
+				}
+			}}
 		>
 			{(form: FormikProps<TechSkillCardProps>) => (
 				<TechSkillCard.CardBase
@@ -235,6 +291,30 @@ const TechSkillCard = (props: TechSkillCardProps) => {
 								)}
 							</Field>
 						</Box>
+						{props.mode === "create" && (
+							<Box
+								sx={{
+									display: "flex",
+									justifyContent: "flex-end",
+									width: "100%",
+									marginTop: 2,
+									columnGap: 1,
+								}}
+							>
+								<Button
+									variant="contained"
+									color="primary"
+									loading={createTechSkill.isPending}
+									onClick={() => {
+										form.submitForm();
+									}}
+									size="small"
+									disabled={createTechSkill.isPending}
+								>
+									Create
+								</Button>
+							</Box>
+						)}
 					</Box>
 				</TechSkillCard.CardBase>
 			)}
