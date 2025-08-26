@@ -3,10 +3,13 @@ import styles from "./Profile.module.css";
 import Image from "next/image";
 import theme from "@/providers/theme";
 import TechSkillIcon from "../TechSkillIcon/TechSkillIcon.component";
+import { useListTechSkills } from "@/services/TechSkill/TechSkill.query";
 
 export default function Profile() {
 	const containerSize = 600;
 	const matches = useMediaQuery(theme.breakpoints.down("sm"));
+
+	const techSkills = useListTechSkills();
 
 	return (
 		<Box
@@ -29,17 +32,15 @@ export default function Profile() {
 				},
 			}}
 		>
-			<TechSkillIcon name="PHP" primaryColor="#777BB4" secondaryColor="white" />
-			<TechSkillIcon
-				name="Node.js"
-				primaryColor="#68A063"
-				secondaryColor="white"
-			/>
-			<TechSkillIcon
-				name="Laravel"
-				primaryColor="#FF3427"
-				secondaryColor="white"
-			/>
+			{techSkills.isFetched &&
+				techSkills.data?.map((techSkill) => (
+					<TechSkillIcon
+						key={techSkill.id}
+						name={techSkill.name}
+						primaryColor={techSkill.primaryColor}
+						secondaryColor={techSkill.secondaryColor}
+					/>
+				))}
 			<object
 				data={"/tech_card_back.svg"}
 				type="image/svg+xml"

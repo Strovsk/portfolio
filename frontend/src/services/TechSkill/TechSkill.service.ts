@@ -2,9 +2,10 @@
 
 import { fetchAuth } from "@/utils/fetchAuth";
 import type { TechSkill } from "./TechSkill.schema";
+import { fetchCommon } from "@/utils/fetchCommon";
 
 export const listTechSkills = async (): Promise<TechSkill[]> => {
-	const response = await fetchAuth("/techskill");
+	const response = await fetchCommon("/public/techskill");
 
 	if (!response.ok) {
 		const textError = await response.text();

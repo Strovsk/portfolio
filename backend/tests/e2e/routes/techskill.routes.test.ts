@@ -183,7 +183,7 @@ describe("TechSkill routes", () => {
 		);
 
 		const response = await request(app.express)
-			.get("/techskill")
+			.get("/public/techskill")
 			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
@@ -204,7 +204,7 @@ describe("TechSkill routes", () => {
 		);
 
 		const response = await request(app.express)
-			.get("/techskill?name=TechSkill 1")
+			.get("/public/techskill?name=TechSkill 1")
 			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
@@ -225,7 +225,7 @@ describe("TechSkill routes", () => {
 		);
 
 		const response = await request(app.express)
-			.get("/techskill?page=2&itemsPerPage=2")
+			.get("/public/techskill?page=2&itemsPerPage=2")
 			.set("Authorization", `Bearer ${CreateJWTTokenService("admin")}`);
 
 		expect(response.status).toBe(httpStatus.OK);
