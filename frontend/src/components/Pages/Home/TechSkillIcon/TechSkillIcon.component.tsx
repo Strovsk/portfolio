@@ -1,4 +1,4 @@
-import { Box, keyframes } from "@mui/material";
+import { Box, Fade, keyframes } from "@mui/material";
 import { useRef } from "react";
 
 interface TechSkillIconProps {
@@ -64,48 +64,50 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 	};
 
 	return (
-		<Box
-			key={`tech-skill-icon-orbiter-${name}`}
-			sx={{
-				width: randomOrbiterSize,
-				height: randomOrbiterSize,
+		<Fade in={true} timeout={500}>
+			<Box
+				key={`tech-skill-icon-orbiter-${name}`}
+				sx={{
+					width: randomOrbiterSize,
+					height: randomOrbiterSize,
 
-				position: "absolute",
+					position: "absolute",
 
-				// border: "2px dotted red",
-				borderRadius: "50%",
-				zIndex: 5,
-				display: "flex",
-				alignItems: "center",
+					// border: "2px dotted red",
+					borderRadius: "50%",
+					zIndex: 5,
+					display: "flex",
+					alignItems: "center",
 
-				transform: `rotate(${initialRotation}deg)`,
+					transform: `rotate(${initialRotation}deg)`,
 
-				animation: `${orbitAnimation} ${animationDuration}s ease-in-out infinite`,
-			}}
-		>
-			<Box sx={{ transform: "translate(-50%, -50%)", cursor: "pointer" }}>
-				<Box
-					key={`tech-skill-icon-${name}`}
-					sx={{
-						backgroundColor: primaryColor,
-						width: iconSize,
-						height: iconSize,
-						borderRadius: "15px",
-						display: "grid",
-						placeItems: "center",
-						transform: `rotate(${-initialRotation}deg)`,
-						animation: `${counterOrbit} ${animationDuration}s ease-in-out infinite`,
-					}}
-					onMouseEnter={handleMouseEnter}
-					onMouseLeave={handleMouseLeave}
-				>
-					<img
-						src={`https://cdn.simpleicons.org/${name}/${secondaryColor.replace("#", "")}`}
-						alt={name}
-						width={iconSize / 2}
-					/>
+					animation: `${orbitAnimation} ${animationDuration}s ease-in-out infinite`,
+				}}
+			>
+				<Box sx={{ transform: "translate(-50%, -50%)", cursor: "pointer" }}>
+					<Box
+						key={`tech-skill-icon-${name}`}
+						sx={{
+							backgroundColor: primaryColor,
+							width: iconSize,
+							height: iconSize,
+							borderRadius: "15px",
+							display: "grid",
+							placeItems: "center",
+							transform: `rotate(${-initialRotation}deg)`,
+							animation: `${counterOrbit} ${animationDuration}s ease-in-out infinite`,
+						}}
+						onMouseEnter={handleMouseEnter}
+						onMouseLeave={handleMouseLeave}
+					>
+						<img
+							src={`https://cdn.simpleicons.org/${name}/${secondaryColor.replace("#", "")}`}
+							alt={name}
+							width={iconSize / 2}
+						/>
+					</Box>
 				</Box>
 			</Box>
-		</Box>
+		</Fade>
 	);
 }
