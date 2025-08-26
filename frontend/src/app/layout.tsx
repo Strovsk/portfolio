@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/providers/theme";
 import { Inter } from "next/font/google";
 import { ClientProviders } from "@/providers/ClientProviders";
 
@@ -24,8 +21,8 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt-BR">
-			<body className={inter.variable}>
+		<html lang="pt-BR" className={inter.variable}>
+			<body>
 				<ClientProviders>{children}</ClientProviders>
 			</body>
 		</html>

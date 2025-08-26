@@ -1,10 +1,18 @@
 "use client";
 
 import { createTheme } from "@mui/material";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+	weight: ["400", "700"],
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
+});
 
 const theme = createTheme({
 	typography: {
-		fontFamily: "var(--font-inter)",
+		fontFamily: inter.style.fontFamily,
 	},
 	palette: {
 		primary: {

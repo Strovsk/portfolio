@@ -1,6 +1,4 @@
-"use client";
-
-import { ThemeProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import type React from "react";
 
