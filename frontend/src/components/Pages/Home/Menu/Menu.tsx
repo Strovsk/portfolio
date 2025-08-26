@@ -7,7 +7,12 @@ import theme from "@/providers/theme";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Link from "next/link";
 
-export default function Menu() {
+interface MenuProps {
+	openAboutMe: boolean;
+	setOpenAboutMe: (open: boolean) => void;
+}
+
+export default function Menu(props: MenuProps) {
 	return (
 		<Grid
 			container
@@ -41,6 +46,7 @@ export default function Menu() {
 						color="primary"
 						variant="contained"
 						endIcon={<KeyboardArrowUpIcon />}
+						onClick={() => props.setOpenAboutMe(!props.openAboutMe)}
 					>
 						Veja meu resumo
 					</Button>
