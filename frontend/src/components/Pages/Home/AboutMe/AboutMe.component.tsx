@@ -1,8 +1,17 @@
 import theme from "@/providers/theme";
-import { Box, Dialog, IconButton, Slide, Typography } from "@mui/material";
+import {
+	Box,
+	Dialog,
+	DialogContent,
+	DialogTitle,
+	IconButton,
+	Slide,
+	Typography,
+} from "@mui/material";
 import type { TransitionProps } from "@mui/material/transitions";
 import CloseIcon from "@mui/icons-material/Close";
 import React from "react";
+import { Descriptions } from "./Components/DescriptionsComponent/Descriptions.component";
 
 interface AboutMeProps {
 	open?: boolean;
@@ -27,6 +36,7 @@ export default function AboutMe(props: AboutMeProps) {
 				fullWidth
 				open={openProp}
 				onClose={() => props.setOpen?.(false)}
+				maxWidth="md"
 				slots={{
 					transition: Transition,
 				}}
@@ -40,7 +50,6 @@ export default function AboutMe(props: AboutMeProps) {
 							boxShadow: 24,
 							position: "absolute",
 							bottom: -35,
-							width: "lg",
 							height: "90vh",
 						},
 					},
@@ -54,6 +63,7 @@ export default function AboutMe(props: AboutMeProps) {
 						border: ".0625rem solid white",
 						borderRadius: "50%",
 					}}
+					data-name="close-button"
 				>
 					<IconButton
 						onClick={() => props.setOpen?.(false)}
@@ -62,11 +72,12 @@ export default function AboutMe(props: AboutMeProps) {
 						<CloseIcon />
 					</IconButton>
 				</Box>
-				<Box
+
+				<DialogTitle
 					sx={{
 						backgroundImage: "url('/accent.svg')",
 						backgroundRepeat: "no-repeat",
-						backgroundSize: "60%",
+						backgroundSize: "40%",
 						height: "40%",
 						backgroundPosition: "center",
 						display: "flex",
@@ -78,6 +89,7 @@ export default function AboutMe(props: AboutMeProps) {
 							backgroundSize: "75%",
 						},
 					}}
+					data-name="header"
 				>
 					<Box
 						sx={{
@@ -121,8 +133,20 @@ export default function AboutMe(props: AboutMeProps) {
 							<Typography variant="caption">25 anos</Typography>
 						</Box>
 					</Box>
-				</Box>
+				</DialogTitle>
+
+				<DialogContent
+					sx={{
+						display: "flex",
+						justifyContent: "space-between",
+						marginInline: 2,
+					}}
+				>
+					<AboutMe.Descriptions />
+				</DialogContent>
 			</Dialog>
 		</React.Fragment>
 	);
 }
+
+AboutMe.Descriptions = Descriptions;
