@@ -33,14 +33,43 @@ export default function Profile() {
 			}}
 		>
 			{techSkills.isFetched &&
-				techSkills.data?.map((techSkill) => (
-					<TechSkillIcon
-						key={techSkill.id}
-						name={techSkill.name}
-						primaryColor={techSkill.primaryColor}
-						secondaryColor={techSkill.secondaryColor}
-					/>
-				))}
+				techSkills.data?.map(
+					(techSkill, index) =>
+						index % 2 === 0 && (
+							<TechSkillIcon
+								key={techSkill.id}
+								name={techSkill.name}
+								primaryColor={techSkill.primaryColor}
+								secondaryColor={techSkill.secondaryColor}
+								layer={1}
+							/>
+						),
+				)}
+			<Box
+				sx={{
+					position: "absolute",
+					borderRadius: "50%",
+					// border: "1px solid red",
+					width: 700,
+					height: 700,
+					background:
+						"radial-gradient(circle, rgba(238, 238, 238, .5) 0%, transparent 100%)",
+					zIndex: 3,
+				}}
+			/>
+			{techSkills.isFetched &&
+				techSkills.data?.map(
+					(techSkill, index) =>
+						index % 2 === 1 && (
+							<TechSkillIcon
+								key={techSkill.id}
+								name={techSkill.name}
+								primaryColor={techSkill.primaryColor}
+								secondaryColor={techSkill.secondaryColor}
+								layer={2}
+							/>
+						),
+				)}
 			<object
 				data={"/tech_card_back.svg"}
 				type="image/svg+xml"
@@ -62,6 +91,7 @@ export default function Profile() {
 				width={containerSize / 3}
 				height={containerSize / 3}
 				alt="an image of me"
+				style={{ zIndex: 5 }}
 			/>
 		</Box>
 	);

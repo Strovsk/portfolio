@@ -10,6 +10,7 @@ interface TechSkillIconProps {
 	shortDescription: string;
 	startDate: Date | string;
 	endDate: Date | string;
+	layer?: number;
 }
 
 export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
@@ -66,45 +67,51 @@ export default function TechSkillIcon(props: Partial<TechSkillIconProps>) {
 	return (
 		<Fade in={true} timeout={500}>
 			<Box
-				key={`tech-skill-icon-orbiter-${name}`}
 				sx={{
+					position: "absolute",
 					width: randomOrbiterSize,
 					height: randomOrbiterSize,
-
-					position: "absolute",
-
-					// border: "2px dotted red",
 					borderRadius: "50%",
-					zIndex: 5,
+					zIndex: props.layer === 2 && Math.random() > 0.5 ? 5 : 3,
 					display: "flex",
 					alignItems: "center",
-
-					transform: `rotate(${initialRotation}deg)`,
-
-					animation: `${orbitAnimation} ${animationDuration}s ease-in-out infinite`,
+					justifyContent: "center",
+					transform: `scale(${props.layer === 2 ? 1 : 0.8})`,
 				}}
 			>
-				<Box sx={{ transform: "translate(-50%, -50%)", cursor: "pointer" }}>
-					<Box
-						key={`tech-skill-icon-${name}`}
-						sx={{
-							backgroundColor: primaryColor,
-							width: iconSize,
-							height: iconSize,
-							borderRadius: "15px",
-							display: "grid",
-							placeItems: "center",
-							transform: `rotate(${-initialRotation}deg)`,
-							animation: `${counterOrbit} ${animationDuration}s ease-in-out infinite`,
-						}}
-						onMouseEnter={handleMouseEnter}
-						onMouseLeave={handleMouseLeave}
-					>
-						<img
-							src={`https://cdn.simpleicons.org/${name}/${secondaryColor.replace("#", "")}`}
-							alt={name}
-							width={iconSize / 2}
-						/>
+				<Box
+					key={`tech-skill-icon-orbiter-${name}`}
+					sx={{
+						width: "100%",
+						height: "100%",
+						display: "flex",
+						alignItems: "center",
+						animation: `${orbitAnimation} ${animationDuration}s ease-in-out infinite`,
+						transform: `rotate(${initialRotation}deg)`,
+					}}
+				>
+					<Box sx={{ transform: "translate(-50%, -50%)", cursor: "pointer" }}>
+						<Box
+							key={`tech-skill-icon-${name}`}
+							sx={{
+								backgroundColor: primaryColor,
+								width: iconSize,
+								height: iconSize,
+								borderRadius: "15px",
+								display: "grid",
+								placeItems: "center",
+								transform: `rotate(${-initialRotation}deg)`,
+								animation: `${counterOrbit} ${animationDuration}s ease-in-out infinite`,
+							}}
+							onMouseEnter={handleMouseEnter}
+							onMouseLeave={handleMouseLeave}
+						>
+							<img
+								src={`https://cdn.simpleicons.org/${name}/${secondaryColor.replace("#", "")}`}
+								alt={name}
+								width={iconSize / 2}
+							/>
+						</Box>
 					</Box>
 				</Box>
 			</Box>
