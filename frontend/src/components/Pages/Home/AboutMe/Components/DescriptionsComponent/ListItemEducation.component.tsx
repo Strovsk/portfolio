@@ -1,9 +1,6 @@
-import { Box, ListItem, Typography } from "@mui/material";
+import { Box, ListItem, Tooltip, Typography } from "@mui/material";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import {
-	getStatusOfLengthOfStay,
-	type LengthOfStayItem,
-} from "../../AboutMe.consts";
+import type { LengthOfStayItem } from "../../AboutMe.consts";
 import React from "react";
 
 export interface ListItemEducationProps {
@@ -11,14 +8,23 @@ export interface ListItemEducationProps {
 }
 
 export default function ListItemEducation(props: ListItemEducationProps) {
-	const status = getStatusOfLengthOfStay(
-		props.data.startDate,
-		props.data.endDate,
-	);
+	const statusMap = {
+		unfinished: "Incompleto",
+		doing: "Em andamento",
+		done: "Concluído",
+	};
 
 	return (
 		<ListItem sx={{ display: "flex", columnGap: 2 }}>
-			<AccountBalanceIcon color={status === "done" ? "success" : "warning"} />
+			<Tooltip title={statusMap[props.data.status ?? "doing"]}>
+				<AccountBalanceIcon
+					color={
+						["done", "doing"].includes(props.data.status ?? "doing")
+							? "success"
+							: "warning"
+					}
+				/>
+			</Tooltip>
 			<Box display={"flex"} alignItems={"center"} flexDirection={"column"}>
 				<Typography variant="caption" textAlign="justify">
 					{props.data.startDate.getFullYear()}

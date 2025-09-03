@@ -1,12 +1,13 @@
+export type LengthOfStayStatus = "doing" | "done" | "unfinished";
+
 export type LengthOfStayItem = {
 	startDate: Date;
 	endDate: Date | null;
 	institution: string;
 	description: string;
 	position: string;
+	status?: LengthOfStayStatus;
 };
-
-export type LengthOfStayStatus = "doing" | "done" | "unfinished";
 
 export const getStatusOfLengthOfStay = (
 	start: Date,
@@ -46,6 +47,7 @@ export const aboutMeData: AboutMeData = {
 			position: "Bacharel em Ciência da Computação",
 			description:
 				"Graduação em Ciência da Computação com ênfase em desenvolvimento de software.",
+			status: "unfinished",
 		},
 		{
 			startDate: new Date(2023, 0, 1),
@@ -54,6 +56,7 @@ export const aboutMeData: AboutMeData = {
 			position: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
 			description:
 				"Curso focado em desenvolvimento de sistemas, abrangendo desde a análise de requisitos até a implementação e manutenção de software.",
+			status: "doing",
 		},
 	],
 	experience: [
